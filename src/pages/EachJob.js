@@ -21,11 +21,11 @@ const EachJob = () => {
     const desc = ""
 
     return (
-        <div>
+        <div style={{backgroundColor:"#F6F7FB", minHeight:"720px"}}>
             {jobs.map((i) => {
                 if(id === i.id){
                     return (<div>
-                        <Description title={i.title} location={i.location} desc={i.description} />
+                        <Description title={i.title} location={i.location} desc={i.description} how_to_apply={i.how_to_apply} type={i.type} company={i.company} url={i.company_url} />
                         </div>)
                 }
             })}

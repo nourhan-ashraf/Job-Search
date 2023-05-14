@@ -65,3 +65,39 @@ body{
 
 }
 
+.decriptionTitle{
+    color:#334680;
+    font-size: 24px;
+    font-weight: 700;
+
+}
+
+.decription{
+    color:#334680;
+    font-size: 16px;
+    font-weight: 400;
+}
+.decription a{
+    color: #1E86FF;
+}
+.company{
+    color:#334680;
+    font-size: 18px;
+    font-weight: 700;
+}
+.locationTitle{
+    color:#1E86FF;
+    font-size: 12px;
+    font-weight: 500;
+}
+.back{
+    color:#1E86FF;    
+    font-size: 14px;
+    font-weight: 500;
+}
+.apply{
+    color:#B9BDCF;    
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
