@@ -2,14 +2,14 @@
   text-align: center;
 }
 body{
-min-height: 720px;
+min-height: 721px;
 }
 .bgDark {
-  min-height: 720px;
+  min-height: 721px;
   background: #1C1A27;
 }
 .bgLight {
-  min-height: 720px;
+  min-height: 721px;
   background: #F6F7FB;
 }
 

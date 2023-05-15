@@ -11,7 +11,7 @@ import { DarkModeContext } from "../contexts/ThemeContext";
 import { Link } from "react-router-dom";
 
 const Jobs = ({ jobs, loading }) => {
-    const {darkMode} = useContext(DarkModeContext)
+    const {darkMode, toggleModes} = useContext(DarkModeContext)
     const [query, setQuery] = useState("")
     const [numOfJobsPerPage] = useState(9)
     const [isFullTime, setIsFullTime] = useState(false);
@@ -71,7 +71,14 @@ const Jobs = ({ jobs, loading }) => {
     return (
         <div className={styles.pagePadding} >
             <div className={styles.gap}>
-                <Link to="/"><Flex flexDirection="row" marginBottom="15px"><h1 className={darkMode ? styles.logoBDark : styles.logoB}>Workify&nbsp;</h1> <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1></Flex>
+            <Form.Check 
+                className={styles.switch}
+                type="switch"                
+                onClick={() => {
+                  toggleModes()
+                }}
+              />    
+                <Link to="/"><Flex flexDirection="row" ><h1 className={darkMode ? styles.logoBDark : styles.logoB}>Workify&nbsp;</h1> <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1></Flex>
 
                 </Link>
             </div>
@@ -82,7 +89,7 @@ const Jobs = ({ jobs, loading }) => {
 
                     <Flex flexDir="row" align="center" justify="end">
 
-                        <input className={styles.search} placeholder="Enter Job Title or location" onChange={event => setQuery(event.target.value)} />
+                        <input className={styles.search} placeholder="Enter Job Title or Location" onChange={event => setQuery(event.target.value)} />
                     </Flex>
                 </div>
 

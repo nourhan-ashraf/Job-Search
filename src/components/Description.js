@@ -9,27 +9,27 @@ import { IoReturnUpBackOutline } from 'react-icons/io5'
 import { ImLocation } from 'react-icons/im'
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../contexts/ThemeContext";
-const Description = ({ title, location, desc, how_to_apply, type, company, url}) => {
-    const {darkMode} = useContext(DarkModeContext)
+const Description = ({ title, location, desc, how_to_apply, type, company, url }) => {
+    const { darkMode } = useContext(DarkModeContext)
     return (
         <div className={styles.pagePadding} >
-            <div className={styles.gap}>
+            <div>
                 <Link to="/"><Flex flexDirection="row" marginBottom="15px"><h1 className={darkMode ? styles.logoBDark : styles.logoB}>Workify&nbsp;</h1> <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1></Flex>
 
                 </Link>
             </div>
 
-                <div className={styles.flexGrid}>
+            <div className={styles.flexGrid}>
                 <div >
                     <Link to="/" ><h1 className={styles.back}> <Flex flexDirection="row" justify="start" align="center"><IoReturnUpBackOutline color="1E86FF" size={25} />&nbsp;Back to search </Flex></h1>
                     </Link>
-                    
+
                     <div className={styles.hid}>
-                    <br />
-                    <h1 className={styles.apply}>HOW TO APPLY</h1>
-                    <p className={styles.applyText} dangerouslySetInnerHTML={{ __html: how_to_apply }}></p>
-                    <Link to={`${url}`}><Button size="md" style={{fontWeight:"bold"}}>Apply</Button></Link>
-                </div></div>
+                        <br />
+                        <h1 className={styles.apply}>HOW TO APPLY</h1>
+                        <p className={styles.applyText} dangerouslySetInnerHTML={{ __html: how_to_apply }}></p>
+                        <Link to={`${url}`}><Button size="md" style={{ fontWeight: "bold" }}>Apply</Button></Link>
+                    </div></div>
 
                 <div>
                     <h1 className={darkMode ? styles.decriptionTitleDark : styles.decriptionTitle}>{title}</h1>
@@ -38,7 +38,7 @@ const Description = ({ title, location, desc, how_to_apply, type, company, url})
                     <br />
                     <br />
 
-                    <Flex  justify="start" align="start">
+                    <Flex justify="start" align="start">
                         <img className={styles.image} src="/building.png" width={50} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <Flex flexDirection="column" justify="end" align="start">
                             <h1 className={darkMode ? styles.companyDark : styles.company}>{company}</h1>
@@ -51,12 +51,12 @@ const Description = ({ title, location, desc, how_to_apply, type, company, url})
                     <br />
 
                     <p className={darkMode ? styles.decriptionDark : styles.decription} dangerouslySetInnerHTML={{ __html: desc }}></p>
-                    <br/>
+                    <br />
                     <div className={styles.show}>
-                    <h1 className={styles.apply}>HOW TO APPLY</h1>
-                    <p className={styles.applyText} dangerouslySetInnerHTML={{ __html: how_to_apply }}></p>
-                    <Link to={`${url}`}><Button size="md" style={{fontWeight:"bold"}}>Apply</Button></Link>
-                </div>
+                        <h1 className={styles.apply}>HOW TO APPLY</h1>
+                        <p className={styles.applyText} dangerouslySetInnerHTML={{ __html: how_to_apply }}></p>
+                        <Link to={`${url}`}><Button size="md" style={{ fontWeight: "bold" }}>Apply</Button></Link>
+                    </div>
                 </div></div>
         </div>
     )
