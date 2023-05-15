@@ -2,8 +2,17 @@
   text-align: center;
 }
 body{
-  background-color: #F6F7FB;
+min-height: 720px;
 }
+.bgDark {
+  min-height: 720px;
+  background: #1C1A27;
+}
+.bgLight {
+  min-height: 720px;
+  background: #F6F7FB;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

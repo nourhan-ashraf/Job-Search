@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from 'react'
 import styles from '../CSS/jobCard.module.css'
 import JobCard from "./JobCard";
@@ -7,9 +7,11 @@ import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import { Flex, Wrap, WrapItem } from '@chakra-ui/react'
-
+import { DarkModeContext } from "../contexts/ThemeContext";
+import { Link } from "react-router-dom";
 
 const Jobs = ({ jobs, loading }) => {
+    const {darkMode} = useContext(DarkModeContext)
     const [query, setQuery] = useState("")
     const [numOfJobsPerPage] = useState(9)
     const [isFullTime, setIsFullTime] = useState(false);
@@ -67,11 +69,11 @@ const Jobs = ({ jobs, loading }) => {
         return <Spinner animation="border" variant="primary" />;
     }
     return (
-        <div style={{ padding: "40px 90px" }} >
+        <div className={styles.pagePadding} >
             <div className={styles.gap}>
-                <div><Flex flexDirection="row" marginBottom="15px"><h1 className={styles.logoB}>Workify&nbsp;</h1> <h1 className={styles.logoL}>Jobs</h1></Flex>
+                <Link to="/"><Flex flexDirection="row" marginBottom="15px"><h1 className={darkMode ? styles.logoBDark : styles.logoB}>Workify&nbsp;</h1> <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1></Flex>
 
-                </div>
+                </Link>
             </div>
             <div className={styles.container}>
                 <img src="/backgroundImg.png" className={styles.bg} />
@@ -94,7 +96,7 @@ const Jobs = ({ jobs, loading }) => {
             </Alert>
             <br />
             <Flex flexDirection="column" justify='center' align="end">
-                <Form.Check style={{ fontWeight: "bold" }} value={isFullTime} onChange={handleChange} type="checkbox" label="Full time only" />
+                <Form.Check className={darkMode ? styles.checkDark : styles.checkLight } value={isFullTime} onChange={handleChange} type="checkbox" label="Full time only" />
             </Flex>
             <br />
 
@@ -107,7 +109,7 @@ const Jobs = ({ jobs, loading }) => {
             </Wrap>) : <div></div>}
             <br />
             <Flex flexDirection="column" justify='center' align="center">
-                <Pagination setPage={setPage} page={page} jobsLen={filterTitle.length} numOfJobsPerPage={numOfJobsPerPage} /></Flex>
+                {filterTitle.length ? <Pagination setPage={setPage} page={page} jobsLen={filterTitle.length} numOfJobsPerPage={numOfJobsPerPage} /> : <h1 className={darkMode ? styles.noResDark : styles.noRes}>No results</h1>}</Flex>
         </div>
     )
 }

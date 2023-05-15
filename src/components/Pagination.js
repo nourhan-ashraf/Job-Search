@@ -22,7 +22,7 @@ const JobsPagination = ({ page, setPage, jobsLen, numOfJobsPerPage }) => {
         else return true
     }
 
-
+    if(allPages===1) return 
     return (
         <Pagination>
             {page !== 1 && <Pagination.First onClick={() => firstPage()} />}

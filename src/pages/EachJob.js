@@ -18,10 +18,9 @@ const EachJob = () => {
     }
     fetchJobs();
     }, [])
-    const desc = ""
 
     return (
-        <div style={{backgroundColor:"#F6F7FB", minHeight:"720px"}}>
+        <div style={{ minHeight:"720px"}}>
             {jobs.map((i) => {
                 if(id === i.id){
                     return (<div>
@@ -29,7 +28,7 @@ const EachJob = () => {
                         </div>)
                 }
             })}
-            {desc}
+    
         </div>
     )
 }

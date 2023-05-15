@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Jobs from './../components/Jobs'
-import { Flex } from "@chakra-ui/react";
-
+import { ThemeContext, themes } from "../contexts/ThemeContext";
+import Form from 'react-bootstrap/Form';
+import { DarkModeContext } from "../contexts/ThemeContext";
+import styles from '../CSS/jobCard.module.css'
 const JobPage = () => {
+    const {darkMode, toggleModes} = useContext(DarkModeContext)
+    const [switchId, setId] = useState("custom-switch");
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -21,8 +25,16 @@ const JobPage = () => {
 
     return (
 
-        <div style={{ backgroundColor: "#F6F7FB" }} >   
-
+        <div  >   
+                <Form.Check 
+                type="switch"
+                id={switchId}
+                
+                onClick={() => {
+                  toggleModes()
+                }}
+              />              
+          
             <Jobs jobs={jobs} loading={loading} />
 
         </div>
