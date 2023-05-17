@@ -78,7 +78,7 @@ const Jobs = ({ jobs, loading }) => {
                   toggleModes()
                 }}
               />    
-                <Link to="/"><Flex flexDirection="row" ><h1 className={darkMode ? styles.logoBDark : styles.logoB}>Workify&nbsp;</h1> <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1></Flex>
+                <Link to="/"><Flex flexDirection="row" ><h1 className={darkMode ? styles.logoBDark : styles.logoB}>Github&nbsp;</h1> <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1></Flex>
 
                 </Link>
             </div>

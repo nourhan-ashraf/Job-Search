@@ -14,7 +14,7 @@ const Description = ({ title, location, desc, how_to_apply, type, company, url }
     return (
         <div className={styles.pagePadding} >
             <div>
-                <Link to="/"><Flex flexDirection="row" marginBottom="15px"><h1 className={darkMode ? styles.logoBDark : styles.logoB}>Workify&nbsp;</h1> <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1></Flex>
+                <Link to="/"><Flex flexDirection="row" marginBottom="15px"><h1 className={darkMode ? styles.logoBDark : styles.logoB}>Github&nbsp;</h1> <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1></Flex>
 
                 </Link>
             </div>
