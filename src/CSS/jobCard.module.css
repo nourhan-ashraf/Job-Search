@@ -31,8 +31,12 @@ body {
     font-size: 30px;
     color: #ffffff;
     margin-bottom: 30px;
-
 }
+.mode{
+    width: 40px;
+    padding-bottom: 25px;
+}
+
 .switch{
     margin-bottom: 25px;
 

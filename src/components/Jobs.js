@@ -9,14 +9,17 @@ import Alert from 'react-bootstrap/Alert';
 import { Flex, Wrap, WrapItem } from '@chakra-ui/react'
 import { DarkModeContext } from "../contexts/ThemeContext";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Jobs = ({ jobs, loading }) => {
     const {darkMode, toggleModes} = useContext(DarkModeContext)
+    
     const [query, setQuery] = useState("")
     const [numOfJobsPerPage] = useState(9)
     const [isFullTime, setIsFullTime] = useState(false);
-
     const [page, setPage] = useState(1);
+
+
     let filterTitle = []
     let filterFull = []
 
@@ -64,20 +67,29 @@ const Jobs = ({ jobs, loading }) => {
     const lastPageIndex = numOfJobsPerPage * page;
     const firstPageIndex = lastPageIndex - numOfJobsPerPage;
     const currentJobs = filterTitle.slice(firstPageIndex, lastPageIndex)
-
+    const moon = "/night-mode.png"
+    const sun = "/sun.png"
+    
+ 
     if (loading) {
         return <Spinner animation="border" variant="primary" />;
     }
     return (
         <div className={styles.pagePadding} >
             <div className={styles.gap}>
-            <Form.Check 
+                <button onClick={(e) => {
+                  toggleModes();
+                  e.stopPropagation();
+                  e.preventDefault();
+                }}>
+                <img className={styles.mode} src={darkMode ? sun : moon} ></img></button>
+           {/* <Form.Check 
                 className={styles.switch}
                 type="switch"                
                 onClick={() => {
                   toggleModes()
                 }}
-              />    
+            />    */}
                 <Link to="/"><Flex flexDirection="row" ><h1 className={darkMode ? styles.logoBDark : styles.logoB}>Github&nbsp;</h1> <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1></Flex>
 
                 </Link>
