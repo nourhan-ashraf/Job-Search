@@ -4,10 +4,10 @@ import { Badge, Button } from "react-bootstrap";
 import { Flex } from "@chakra-ui/react";
 import { IoReturnUpBackOutline } from 'react-icons/io5';
 import { ImLocation } from 'react-icons/im';
+import { MdDateRange } from "react-icons/md";
 
 import { DarkModeContext } from "../../contexts/ThemeContext";
 import styles from './Description.module.css';
-import { MdDateRange } from "react-icons/md";
 
 const Description = (props) => {
     const { darkMode } = useContext(DarkModeContext)

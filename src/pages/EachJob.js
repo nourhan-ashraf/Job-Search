@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+
 import Description from "../components/Description/Description";
 
 const EachJob = () => {
     const [job, setJob] = useState();
     const { id } = useParams()
 
-console.log(id)
+    console.log(id)
     const url = `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/${id}`;
     const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': 'a14cc8858dmshfe4cd01c6e39b2ap18e3cdjsn1436e59ec718',
-		    'X-RapidAPI-Host': 'jobsearch4.p.rapidapi.com'
+            'X-RapidAPI-Host': 'jobsearch4.p.rapidapi.com'
         }
     };
 
@@ -36,7 +36,7 @@ console.log(id)
 
     return (
         <div style={{ minHeight: "720px" }}>
-            <Description job = {job}/>
+            <Description job={job} />
         </div>
     )
 }

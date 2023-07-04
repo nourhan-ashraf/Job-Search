@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
+import { Pagination } from "react-bootstrap";
 import { Flex, Wrap, WrapItem } from '@chakra-ui/react'
 
 import { DarkModeContext } from "../../contexts/ThemeContext";
 import styles from './jobs.module.css'
 import JobCard from "../JobCard/JobCard";
-import { Pagination } from "react-bootstrap";
 
 
 const Jobs = () => {

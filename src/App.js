@@ -7,6 +7,7 @@ import JobPage from './pages/JobPage';
 import EachJob from './pages/EachJob';
 import Error from './pages/Error404';
 import './App.css'
+
 function App() {
   const { darkMode } = useContext(DarkModeContext)
 
