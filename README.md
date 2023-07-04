@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project was to create a job search website using an API with React frontend library. The website provides various functionalities to enhance the user experience. Users have the ability to search for jobs using keywords or Job title. The job listings include relevant information such as company name, location, logo, and posted time. When a user selects a job, they are able to view detailed job descriptions and information on how to apply.
+The goal of this project was to create a job search website using an API with React frontend library. The website provides various functionalities to enhance the user experience. Users have the ability to search for jobs using keywords or Job title. The job listings include relevant information such as company name, location, tags, and posted time. When a user selects a job, they are able to view detailed job descriptions and information on how to apply.
  
  <br/> 
  
