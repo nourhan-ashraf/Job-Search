@@ -16,7 +16,7 @@ The goal of this project was to create a job search website using an API with Re
 
  <br/> 
 
-### Technologies used
+## Technologies used
 
 React JS for web application development
 
@@ -28,22 +28,31 @@ React Bootstrap and Chakra UI as CSS frameworks
 <img src="https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/f7ae9703-3201-433b-87b8-f94176ba8b09" alt="Chakra UI" width="50">
 
  <br/> 
+ <br/> 
  
-### Demo
+
+ 
+## Demo
 Check out this video for a demonstration.
 
 [FindJobs.webm](https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/f3b3d573-510c-498c-977a-ce4a7abefa35)
 
  <br/> 
  
-### Deployment
+## Deployment
 
 I deployed the project using Vercel. Feel free to try out the website yourself at [Job Search Website]( https://github-job-search.vercel.app/)
 
  <br/> 
  
-### API
+## API
 API Link: https://rapidapi.com/avaneesab5/api/jobsearch4
 
 The provided API link is experiencing issues, which are affecting the pagination functionality and causing minor bugs. I have reached out to the developer to address these issues, and once they are resolved, I will update the project accordingly and fix any bugs that may occur.
+
+ <br/> 
+
+## LICENSE
+
+This project is licensed under the [MIT License] - see the [LICENSE](LICENSE.md) file for details.
 
