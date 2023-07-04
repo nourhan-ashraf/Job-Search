@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Job listing and search website using an API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+The goal of this project was to create a job search website using an API with React frontend library. The website provides various functionalities to enhance the user experience. Users have the ability to search for jobs using keywords or Job title. The job listings include relevant information such as company name, location, logo, and posted time. When a user selects a job, they are able to view detailed job descriptions and information on how to apply.
+ 
+ <br/> 
+ 
+## Features
 
-In the project directory, you can run:
+- Job search functionality based on keywords, job title.
+- Display of relevant job listings with detailed information.
+- Ability to view job descriptions and application details.
+- User-friendly interface for seamless navigation.
+- Support for both Light and Dark modes
 
-### `npm start`
+ <br/> 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Technologies used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+React JS for web application development
 
-### `npm test`
+React Bootstrap and Chakra UI as CSS frameworks
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/e8978ade-3412-45ec-8177-7da09ded7248" alt="React JS" width="70">
+<img src="https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/d9ee316e-3b29-45c8-a3d2-cda75a45a34e" alt="React Bootstrap" width="50">
+&nbsp;
+<img src="https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/f7ae9703-3201-433b-87b8-f94176ba8b09" alt="Chakra UI" width="50">
 
-### `npm run build`
+ <br/> 
+ 
+### Demo
+Check out this video for a demonstration.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[FindJobs.webm](https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/f3b3d573-510c-498c-977a-ce4a7abefa35)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
+ <br/> 
+ 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+I deployed the project using Vercel. Feel free to try out the website yourself at [Job Search Website]( https://github-job-search.vercel.app/)
 
-### `npm run build` fails to minify
+ <br/> 
+ 
+### API
+API Link: https://rapidapi.com/avaneesab5/api/jobsearch4
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The provided API link is experiencing issues, which are affecting the pagination functionality and causing minor bugs. I have reached out to the developer to address these issues, and once they are resolved, I will update the project accordingly and fix any bugs that may occur.
+
