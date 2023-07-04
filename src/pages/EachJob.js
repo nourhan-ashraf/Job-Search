@@ -1,34 +1,42 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Description from "../components/Description";
+import axios from "axios";
+import Description from "../components/Description/Description";
 
 const EachJob = () => {
-    const [jobs, setJobs] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const {id} = useParams()
+    const [job, setJob] = useState();
+    const { id } = useParams()
+
+console.log(id)
+    const url = `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/${id}`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'a14cc8858dmshfe4cd01c6e39b2ap18e3cdjsn1436e59ec718',
+		    'X-RapidAPI-Host': 'jobsearch4.p.rapidapi.com'
+        }
+    };
+
     useEffect(() => {
         const fetchJobs = async () => {
-            setLoading(true)
-            const res = await axios.get(`https://mocki.io/v1/770fa359-f753-4966-b59d-54365c7df6e3`)
-            const resData = res.data
-            setJobs(resData)
-            setLoading(false)
-        
-    }
-    fetchJobs();
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                setJob(result)
+            } catch (error) {
+                console.error(error);
+            }
+
+        }
+        fetchJobs();
     }, [])
 
+
     return (
-        <div style={{ minHeight:"720px"}}>
-            {jobs.map((i) => {
-                if(id === i.id){
-                    return (<div>
-                        <Description title={i.title} location={i.location} desc={i.description} how_to_apply={i.how_to_apply} type={i.type} company={i.company} url={i.company_url} />
-                        </div>)
-                }
-            })}
-    
+        <div style={{ minHeight: "720px" }}>
+            <Description job = {job}/>
         </div>
     )
 }

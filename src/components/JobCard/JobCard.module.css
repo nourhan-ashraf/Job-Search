@@ -1,0 +1,39 @@
+body {
+    box-sizing: border-box;
+}
+
+.cardHoverDark {
+    background-color: #504d62;
+}
+
+.cardHoverDark:hover {
+    box-shadow: rgba(255, 255, 255, 0.85) 0px 0px 6px 0px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.cardHover:hover {
+    box-shadow: rgba(110, 128, 152, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.fontColorDark {
+    color: white;
+}
+
+.fontColor {
+    color: #282538;
+}
+
+.buttonHoverDark {
+    background-color: #1E86FF;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    border: none;
+}
+
+.buttonHoverDark:hover {
+    background-color: #56a5ff;
+    color: white;
+    border: none;
+    font-weight: bold;
+
+}

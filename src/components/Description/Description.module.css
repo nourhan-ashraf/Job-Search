@@ -1,0 +1,199 @@
+body {
+    box-sizing: border-box;
+}
+
+.pagePadding {
+    padding: 20px 90px;
+}
+.hid{
+    position: fixed;
+}
+.siteName{
+    position: fixed;
+    z-index: 100;
+}
+.logoB {
+    font-weight: bold;
+    font-size: 30px;
+    color: #282538;
+    margin-bottom: 30px;
+
+}
+
+.logoBDark {
+    font-weight: bold;
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 30px;
+
+}
+
+.logoL {
+    font-weight: lighter;
+    font-size: 30px;
+    color: #282538;
+    margin-bottom: 30px;
+
+}
+
+.logoLLight {
+    font-weight: lighter;
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.flexGrid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 100px;
+}
+
+.back {
+    color: #1E86FF;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.applyText {
+    max-width: 20vw;
+    color: #334680;
+    font-size: 16px;
+    text-overflow: initial;
+    overflow: hidden;
+    white-space: initial;
+}
+
+
+.applyText a {
+    color: #1E86FF;
+}
+
+.apply {
+    color: #B9BDCF;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.decriptionTitle {
+    color: #334680;
+    font-size: 24px;
+    font-weight: 700;
+
+}
+
+.decriptionTitleDark {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.company {
+    color: #334680;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.companyDark {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.locationTitle {
+    color: #1E86FF;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.decription {
+    color: #334680;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.decriptionDark {
+    color: #e4e5ec;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.decription a {
+    color: #1E86FF;
+}
+
+.show {
+    display: none;
+}
+
+@media screen and (min-width:670px) and (max-width:800px) {
+
+    .flexGrid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hid {
+        display: none;
+    }
+    .siteName{
+        position:absolute;
+    }
+    .applyText {
+        max-width: 50vw;
+
+    }
+
+    .decriptionTitleDark {
+        margin-top: -50px;
+    }
+
+    .decriptionTitle {
+        margin-top: -50px;
+    }
+
+    .show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:670px) {
+
+    .pagePadding {
+        padding: 20px 20px;
+    }
+
+    .flexGrid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hid {
+        display: none;
+    }
+    .siteName{
+        position:absolute;
+    }
+    .applyText {
+        max-width: 80vw;
+
+    }
+
+    .decriptionTitleDark {
+        margin-top: -50px;
+    }
+
+    .decriptionTitle {
+        margin-top: -50px;
+    }
+
+    .show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}

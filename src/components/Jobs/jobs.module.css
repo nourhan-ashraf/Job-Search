@@ -1,0 +1,156 @@
+body {
+    box-sizing: border-box;
+}
+
+.logoB {
+    font-weight: bold;
+    font-size: 30px;
+    color: #282538;
+    margin-bottom: 30px;
+
+}
+
+.logoBDark {
+    font-weight: bold;
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 30px;
+
+}
+
+.logoL {
+    font-weight: lighter;
+    font-size: 30px;
+    color: #282538;
+    margin-bottom: 30px;
+
+}
+
+.logoLLight {
+    font-weight: lighter;
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.mode {
+    width: 40px;
+    padding-bottom: 25px;
+}
+
+.switch {
+    margin-bottom: 25px;
+
+}
+
+.checkDark {
+    color: white;
+    font-weight: bold;
+}
+
+.checkLight {
+    color: #282538;
+    font-weight: bold;
+}
+
+.noRes {
+    color: #504d62;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.noResDark {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+}
+
+.search {
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 500px;
+    color: black;
+    border: 1px black solid;
+}
+
+.pagePadding {
+    padding: 20px 90px;
+}
+
+.gap {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (min-width:800px) and (max-width:1090px) {
+    .search {
+        padding: 5px 10px;
+        border-radius: 5px;
+        width: 350px;
+        color: black;
+        border: 1px black solid;
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width:670px) and (max-width:800px) {
+    .bg {
+        display: none;
+    }
+
+
+
+    .search {
+        font-size: 14px;
+        width: 75vw;
+
+
+    }
+
+    .gap {
+        margin-bottom: 30px;
+    }
+
+
+
+}
+
+@media screen and (max-width:670px) {
+
+    .bg {
+        display: none;
+    }
+
+    .gap {
+        margin-bottom: 30px;
+    }
+
+
+    .search {
+        width: 90vw;
+        font-size: 14px;
+
+    }
+
+    .pagePadding {
+        padding: 20px 20px;
+    }
+
+
+}
