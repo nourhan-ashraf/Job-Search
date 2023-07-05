@@ -8,7 +8,6 @@ import { DarkModeContext } from "../../contexts/ThemeContext";
 import styles from './jobs.module.css'
 import JobCard from "../JobCard/JobCard";
 
-
 const Jobs = () => {
 
     const { darkMode, toggleModes } = useContext(DarkModeContext)
@@ -17,11 +16,12 @@ const Jobs = () => {
     let [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
 
+    console.log(`${process.env.REACT_APP_API_KEY}`)
     const url = query ? `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=${query}&PageSize=12&PageNumber=${page}` : `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=w&PageSize=12&PageNumber=${page}`;
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'a14cc8858dmshfe4cd01c6e39b2ap18e3cdjsn1436e59ec718',
+            'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
             'X-RapidAPI-Host': 'jobsearch4.p.rapidapi.com'
         }
     };

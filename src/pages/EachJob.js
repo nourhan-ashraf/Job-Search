@@ -7,12 +7,11 @@ const EachJob = () => {
     const [job, setJob] = useState();
     const { id } = useParams()
 
-    console.log(id)
     const url = `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/${id}`;
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'a14cc8858dmshfe4cd01c6e39b2ap18e3cdjsn1436e59ec718',
+            'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
             'X-RapidAPI-Host': 'jobsearch4.p.rapidapi.com'
         }
     };
