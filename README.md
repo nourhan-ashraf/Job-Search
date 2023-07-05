@@ -1,7 +1,7 @@
 # Job listing and search website using an API
 
 ### Contents:
-[Description](#description) &nbsp; | &nbsp; [Features](#features) &nbsp; | &nbsp; [Technologies used](#technologies-used) &nbsp; | &nbsp; [Demo](#demo) &nbsp; |  &nbsp;[Deployment](#deployment) &nbsp; | &nbsp; [API](api) &nbsp; | &nbsp; [LICENSE](license)
+[Description](#description) &nbsp; | &nbsp; [Features](#features) &nbsp; | &nbsp; [Technologies used](#technologies-used) &nbsp; | &nbsp; [Demo](#demo) &nbsp; |  &nbsp;[Deployment](#deployment) &nbsp; | &nbsp; [API](#api) &nbsp; | &nbsp; [LICENSE](#license)
 
 <br />
 
