@@ -1,6 +1,11 @@
 # Job listing and search website using an API
 
-## Description
+### Contents:
+[Description](#description) &nbsp; | &nbsp; [Features](#features) &nbsp; | &nbsp; [Technologies used](#technologies-used) &nbsp; | &nbsp; [Demo](#demo) &nbsp; |  &nbsp;[Deployment](#deployment) &nbsp; | &nbsp; [API](api) &nbsp; | &nbsp; [LICENSE](license)
+
+<br />
+
+## description
 
 The goal of this project was to create a job search website using an API with React frontend library. The website provides various functionalities to enhance the user experience. Users have the ability to search for jobs using keywords or Job title. The job listings include relevant information such as company name, location, tags, and posted time. When a user selects a job, they are able to view detailed job descriptions and information on how to apply.
  
@@ -41,14 +46,14 @@ Check out this video for a demonstration.
  
 ## Deployment
 
-I deployed the project using Vercel. Feel free to try out the website yourself at [Job Search Website]( https://github-job-search.vercel.app/)
+The project is deployed using Vercel. Feel free to try out the website yourself at [Job Search Website]( https://github-job-search.vercel.app/)
 
  <br/> 
  
 ## API
 API Link: https://rapidapi.com/avaneesab5/api/jobsearch4
 
-The provided API link is experiencing issues, which are affecting the pagination functionality and causing minor bugs. I have reached out to the developer to address these issues, and once they are resolved, I will update the project accordingly and fix any bugs that may occur.
+The provided API link is experiencing issues, which are affecting the pagination functionality causing minor bugs. I have reached out to the developer to address these issues, and once they are resolved, I will update the project accordingly and fix any bugs that may occur.
 
  <br/> 
 
