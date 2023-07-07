@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Description from "../components/Description/Description";
+import ScrollToTop from "../ScrollToTop";
 
 const EachJob = () => {
     const [job, setJob] = useState();
@@ -35,6 +36,7 @@ const EachJob = () => {
 
     return (
         <div style={{ minHeight: "720px" }}>
+            <ScrollToTop /> 
             <Description job={job} />
         </div>
     )

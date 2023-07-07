@@ -1,10 +1,9 @@
 import React from "react";
 import Jobs from "../components/Jobs/Jobs";
-
 const JobPage = () => {
 
     return (
-        <div>  
+        <div> 
             <Jobs />
         </div>
     )
