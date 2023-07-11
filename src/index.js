@@ -6,19 +6,21 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 import reportWebVitals from './reportWebVitals';
 import { DarkModeProvider } from './contexts/ThemeContext';
+import { AuthProvider } from './contexts/AuthContext';
 import App from './App';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <DarkModeProvider>
-    <ChakraProvider>
-      <React.StrictMode>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </React.StrictMode>
-    </ChakraProvider>
+    <AuthProvider>
+      <ChakraProvider>
+        <React.StrictMode>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </React.StrictMode>
+      </ChakraProvider>
+    </AuthProvider>
   </DarkModeProvider>
 );
 

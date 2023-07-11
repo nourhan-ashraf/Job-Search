@@ -36,7 +36,7 @@ const EachJob = () => {
 
     return (
         <div style={{ minHeight: "720px" }}>
-            <ScrollToTop /> 
+            <ScrollToTop />
             <Description job={job} />
         </div>
     )

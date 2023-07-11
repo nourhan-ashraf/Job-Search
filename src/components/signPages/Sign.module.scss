@@ -1,0 +1,98 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 0;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.card {
+    background-color: white;
+    width: 500px;
+    height: 600px;
+    border-radius: 5px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form {
+    justify-content: start;
+    align-items: start;
+}
+
+.paddingCard {
+    padding-top: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.btn {
+    font-size: 18px;
+    color: white;
+    background-color: #0055D9;
+    border-radius: 3px;
+    width: 400px;
+    height: 40px;
+    font-weight: 400;
+
+    &:hover {
+        background-color: #2275f1;
+    }
+}
+
+.input {
+    border: rgb(206, 206, 206) solid 1px;
+    border-radius: 4px;
+    width: 400px;
+    padding: 10px 10px;
+
+}
+
+.link {
+    color: #0055D9;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media screen and (max-width:550px) {
+    .card {
+        width: 350px;
+    }
+
+    .btn {
+
+        width: 300px;
+
+    }
+
+    .input {
+        width: 300px;
+    }
+
+}

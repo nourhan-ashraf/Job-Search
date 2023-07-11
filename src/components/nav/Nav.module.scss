@@ -1,0 +1,61 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 40px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+}
+
+.loginBtn {
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+}
+
+.signupBtn {
+    font-size: 18px;
+    color: white;
+    background-color: #0055D9;
+    border-radius: 2px;
+    width: 100px;
+    height: 40px;
+    font-weight: 500;
+    margin-left: 25px;
+
+    &:hover {
+        background-color: #2275f1;
+    }
+}
+
+.avatar {
+    width: 45px;
+}
+
+
+@media screen and (max-width:600px) {
+    .navbar {
+        padding: 20px 25px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .loginBtn {
+        font-size: 14px;
+
+    }
+
+    .signupBtn {
+        font-size: 14px;
+    }
+}

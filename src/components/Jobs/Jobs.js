@@ -11,12 +11,12 @@ import JobCard from "../JobCard/JobCard";
 const Jobs = () => {
 
     const { darkMode, toggleModes } = useContext(DarkModeContext)
-    const [query, setQuery] = useState("")
+    const [query, setQuery] = useState(localStorage.getItem('query'))
     const [res, setRes] = useState("")
     let [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
 
-    console.log(`${process.env.REACT_APP_API_KEY}`)
+    console.log(query)
     const url = query ? `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=${query}&PageSize=12&PageNumber=${page}` : `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=w&PageSize=12&PageNumber=${page}`;
     const options = {
         method: 'GET',

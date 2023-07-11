@@ -1,0 +1,144 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    /* padding-bottom: 56.25%;
+     16:9 aspect ratio */
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.video::-webkit-media-controls {
+    display: none;
+}
+
+.video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+.video::-webkit-media-controls-panel {
+    display: none !important;
+}
+
+.paddingTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding-top: 55vh;
+    padding-left: 18%;
+    padding-right: 22%;
+}
+
+.title {
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.subTitle {
+    color: white;
+    font-size: 20px;
+}
+
+.icon {
+    color: #0055D9;
+    font-size: 20px;
+    left: 20px;
+    position: absolute;
+    z-index: 100;
+}
+
+.searchBar {
+    width: 67vw;
+    padding: 20px 60px;
+    border-radius: 5px;
+    border: 1px solid #002c6d;
+    font-size: 20px;
+
+}
+
+.searchContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchComponents {
+    padding: 20px 30px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    right: 0;
+    align-items: center;
+}
+
+.searchBtn {
+    font-size: 18px;
+    color: white;
+    background-color: #0055D9;
+    border-radius: 3px;
+    width: 140px;
+    height: 40px;
+    font-weight: 400;
+    margin-left: 20px;
+
+    &:hover {
+        background-color: #2275f1;
+    }
+}
+
+
+@media screen and (max-width:950px) {
+    .title {
+        font-size: 30px;
+    }
+
+    .subTitle {
+        font-size: 18px;
+    }
+
+    .searchBtn {
+        display: none;
+    }
+
+    .searchBar {
+        padding: 20px 40px;
+        font-size: 14px;
+    }
+
+    .icon {
+        left: 10;
+        font-size: 15px;
+    }
+
+    .searchBtnHid {
+        font-size: 18px;
+        color: white;
+        background-color: #0055D9;
+        border-radius: 3px;
+        width: 67vw;
+        font-weight: 400;
+        padding: 7px 0;
+
+        &:hover {
+            background-color: #2275f1;
+        }
+    }
+}
+
+@media screen and (min-width:950px) {
+    .searchBtnHid {
+        display: none;
+    }
+}
