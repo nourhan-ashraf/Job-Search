@@ -1,4 +1,7 @@
 # Job listing and search website using an API
+<img width='40px' src='https://github.com/nourhan-ashraf/Job-Search/assets/66208099/5acf0096-14a1-46e9-81e0-d66f6e585db5' />
+Currently, the project is undergoing changes to incorporate new features.
+<img width='40px' src='https://github.com/nourhan-ashraf/Job-Search/assets/66208099/5acf0096-14a1-46e9-81e0-d66f6e585db5' />
 
 ### Contents:
 [Description](#description) &nbsp; | &nbsp; [Features](#features) &nbsp; | &nbsp; [Technologies used](#technologies-used) &nbsp; | &nbsp; [Demo](#demo) &nbsp; |  &nbsp;[Deployment](#deployment) &nbsp; | &nbsp; [API](#api) &nbsp; | &nbsp; [LICENSE](#license)
