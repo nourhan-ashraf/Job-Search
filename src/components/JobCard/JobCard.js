@@ -10,9 +10,9 @@ import { DarkModeContext } from "../../contexts/ThemeContext";
 import styles from './JobCard.module.css'
 
 const JobCard = (props) => {
-    const { darkMode } = useContext(DarkModeContext)
+    let { darkMode } = useContext(DarkModeContext)
     const [bookmarkClick, setBookmarkClick] = useState(false)
-
+    darkMode = false
     return (
         <>
 

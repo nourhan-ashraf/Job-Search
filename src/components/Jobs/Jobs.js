@@ -118,9 +118,9 @@ const Jobs = () => {
                                     value={query}
                                     onChange={event => setQuery(event.target.value)} />
 
-                                <div className={styles.searchComponents}>
+                                {/*<div className={styles.searchComponents}>
                                     <button className={styles.searchBtn} type="submit">Search</button>
-                                </div>
+                                </div>*/}
                             </div>
                             <br />
                         </Flex>
