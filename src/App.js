@@ -13,12 +13,13 @@ import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
+import SavedJobs from './pages/SavedJobs';
 
 function App() {
   const { darkMode } = useContext(DarkModeContext)
 
   return (
-    <div className={darkMode ? "bgDark" : "bgLight"}>
+    <div className={darkMode ? "bgLight" : "bgLight"}>
       <Routes>
         <Route exact path="/" element={<MainPage />} />
         <Route exact path="/signup" element={<SignUp />} />
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/home" element={<SearchPage />} />
         <Route exact path="/profile" element={<Profile />} />
         {<Route exact path="/edit" element={<EditProfile />}/>}
+        <Route exact path="/saved" element={<SavedJobs />} />
 
         {/*            <Route exact path="/home" element={<PrivateRoute><JobPage /></PrivateRoute>} />
 */}

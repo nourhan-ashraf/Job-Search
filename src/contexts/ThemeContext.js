@@ -10,7 +10,7 @@ function DarkModeProvider(props) {
   })
 
   const toggleModes = () => {
-    setDarkMode(!darkMode)
+    setDarkMode('light')
   }
   useEffect(() => {
     localStorage.setItem('darkMode', darkMode ? 'dark' : 'light');
