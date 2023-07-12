@@ -1,24 +1,45 @@
 body {
     box-sizing: border-box;
 }
-.cardTitle{
-    color:#0055D9;
+
+.cardTitle {
+    color: #0055D9;
 
 }
-.cardSubTitle{
-    color:#001E4C;
+
+.cardSubTitle {
+    color: #001E4C;
     font-weight: 500;
     font-size: 14px;
+    flex-wrap: wrap;
 }
-.badge{
+
+.badge {
     background-color: #EBEDF0;
-    color:#001E4C ;
+    color: #001E4C;
     font-size: 14px;
     padding: 2px 6px;
     font-weight: 500;
     border-radius: 4px;
     margin-right: 5px;
 }
+
+.bookmarkPosition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bookmarkSelected {
+    font-size: 25px;
+    color: #0055D9;
+}
+
+.bookmark {
+    font-size: 25px;
+    color: #4D6182;
+}
+
 .cardHoverDark {
     background-color: #504d62;
 }
@@ -45,4 +66,20 @@ body {
     border: none;
     font-weight: bold;
 
+}
+
+@media screen and (max-width:600px) {
+    .bookmark {
+        font-size: 20px;
+    }
+
+    .bookmarkSelected {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .cardTitle {
+        max-width: 100px;
+    }
 }

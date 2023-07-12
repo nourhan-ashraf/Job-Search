@@ -16,7 +16,7 @@ const Jobs = () => {
     const [res, setRes] = useState("")
     let [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
-   
+
     console.log(query)
     let url = query ? `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=${query}&PageSize=10&PageNumber=${page}` : `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=w&PageSize=10&PageNumber=${page}`;
     const options = {
@@ -26,7 +26,7 @@ const Jobs = () => {
             'X-RapidAPI-Host': 'jobsearch4.p.rapidapi.com'
         }
     };
-   
+
 
     useEffect(() => {
 
@@ -109,22 +109,22 @@ const Jobs = () => {
 
                 <div className={styles.centered}>
                     <form>
-                    <Flex flexDir="row" align="center" justify="end">
-                        <div className={styles.searchContainer}>
-                            <BsSearch className={styles.icon} />
-                            <input
-                                className={styles.searchBar}
-                                placeholder="Search by Job Title, Keywords or Location (e.g. Sales in Cairo)"
-                                type="text"
-                                value={query}
-                                onChange={event => setQuery(event.target.value)} />
+                        <Flex flexDir="row" align="center" justify="end">
+                            <div className={styles.searchContainer}>
+                                <BsSearch className={styles.icon} />
+                                <input
+                                    className={styles.searchBar}
+                                    placeholder="Search by Job Title, Keywords or Location (e.g. Sales in Cairo)"
+                                    type="text"
+                                    value={query}
+                                    onChange={event => setQuery(event.target.value)} />
 
-                            <div className={styles.searchComponents}>
-                                <button className={styles.searchBtn} type="submit">Search</button>
+                                <div className={styles.searchComponents}>
+                                    <button className={styles.searchBtn} type="submit">Search</button>
+                                </div>
                             </div>
-                        </div>
-                        <br />
-                    </Flex>
+                            <br />
+                        </Flex>
                     </form>
                 </div>
 

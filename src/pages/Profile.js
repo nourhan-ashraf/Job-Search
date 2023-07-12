@@ -1,17 +1,18 @@
 import React from "react";
-import Jobs from "../components/Jobs/Jobs";
 import Nav from "../components/nav/Nav";
+import ViewProfile from "../components/profile/ViewProfile";
 
-const SearchPage = () => {
+const Profile = () => {
+
     return (
         <div>
             <Nav />
             <div style={{ paddingTop: "60px" }}>
 
             </div>
-            <Jobs />
+            <ViewProfile />
         </div>
     )
 }
 
-export default SearchPage
+export default Profile

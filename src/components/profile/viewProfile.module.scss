@@ -1,0 +1,176 @@
+.card {
+    background-color: white;
+    padding: 30px 40px;
+    border: 1px solid #dedede;
+    margin: 40px 170px;
+    border-radius: 7px;
+    height: auto;
+    color: #001433;
+}
+
+.indoCard {
+    background-color: white;
+    padding: 20px 20px;
+    border: 1px solid #dedede;
+    border-radius: 7px;
+    height: auto;
+    color: #001433;
+}
+
+.image {
+    width: 140px;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.space {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 4px;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    font-size: 25px;
+    color: #4D6182;
+}
+
+.iconsG1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 7px;
+    font-size: 25px;
+    color: #4D6182;
+}
+
+.icon {
+    &:hover {
+        color: #0055D9;
+        cursor: pointer;
+    }
+}
+
+.icon {
+    &:hover {
+        color: #0055D9;
+        cursor: pointer;
+    }
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.job {
+    font-size: 17px;
+    color: #0055D9;
+    font-weight: 500;
+
+}
+
+.location {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #4D6182;
+    font-size: 15px;
+    font-weight: light;
+}
+
+.email {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    color: #001433;
+    font-weight: light;
+
+}
+
+.emailIcon {
+    font-size: 17px;
+}
+
+.badge {
+    background-color: #EBEDF0;
+    color: #001E4C;
+    font-size: 14px;
+    padding: 2px 6px;
+    font-weight: 500;
+    width: auto;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width:900px) {
+    .image {
+        width: 15vw;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 17px;
+    }
+
+    .icons {
+        font-size: 17px;
+    }
+
+}
+
+@media screen and (max-width:800px) {
+    .card {
+        margin: 40px 50px;
+
+    }
+}
+
+
+@media screen and (max-width:555px) {
+    .card {
+        margin: 40px 0px;
+        padding: 30px 20px;
+    }
+
+    .job {
+        font-size: 15px;
+    }
+
+    .icons {
+        font-size: 17px;
+        gap: 5px;
+    }
+}

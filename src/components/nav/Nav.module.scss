@@ -10,6 +10,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .secNavbar {
     position: fixed;
     top: 0;
@@ -38,11 +39,13 @@
     color: #74849e;
     font-weight: 500;
 }
+
 .secLoginBtn {
     font-size: 18px;
     color: white;
     font-weight: 500;
 }
+
 .signupBtn {
     font-size: 18px;
     color: white;
@@ -62,20 +65,75 @@
     width: 45px;
 }
 
+.navComponents {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    color: #4D6182;
+    font-weight: 500;
+
+
+}
+
+.home {
+    &:hover {
+        color: #0055D9;
+        cursor: pointer;
+    }
+}
+
+.saved {
+    padding-left: 2vw;
+
+    &:hover {
+        color: #0055D9;
+        cursor: pointer;
+    }
+}
+
+.homeClicked {
+    color: #0055D9;
+}
+
+.savedClicked {
+    color: #0055D9;
+}
 
 @media screen and (max-width:900px) {
 
-    .secNavbar{
+    .secNavbar {
         padding: 0px 70px;
     }
 }
+
 @media screen and (max-width:450px) {
 
-    .secNavbar{
+    .secNavbar {
         padding: 0px 40px;
     }
 
 }
+
+@media screen and (max-width:550px) {
+    .home {
+        display: none;
+    }
+
+    .saved {
+        display: none;
+    }
+
+    .homeClicked {
+        display: none;
+    }
+
+    .savedClicked {
+        display: none;
+    }
+}
+
 @media screen and (max-width:600px) {
     .navbar {
         padding: 20px 25px;
