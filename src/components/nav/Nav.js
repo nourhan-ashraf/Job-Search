@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { auth } from "../../firebase";
@@ -10,7 +10,6 @@ import styles from './Nav.module.scss';
 const Nav = () => {
     const navigate = useNavigate();
     const { signout, user } = useAuth()
-
     const handleLogout = () => {
         signout(auth).then(() => {
             navigate("/");
@@ -19,14 +18,16 @@ const Nav = () => {
             console.log(error)
         });
     }
+    const pathname = window.location.pathname
+    console.log(pathname)
     return (
-        <nav className={styles.navbar}>
-            <div>
-                <img className={styles.logo} src='https://wuzzuf.net/images/HomepageImages/logo-white.png' />
-            </div>
+        <nav className={pathname==='/' ? styles.navbar : styles.secNavbar}>
+            <Link to ='/'>
+                {pathname === '/' ? <img className={styles.logoWhite} src='https://wuzzuf.net/images/HomepageImages/logo-white.png' /> : <img className={styles.logoBlue} src='https://www.efgev.com/wp-content/uploads/Wuzzuf-Logo-1.png' />}
+            </Link>
             {console.log(user)}
             {user === null ? <div>
-                <Link to='/signin'><button className={styles.loginBtn}>Login</button></Link>
+                <Link to='/signin'>{pathname==='/' ? <button className={styles.secLoginBtn}>Login</button> : <button className={styles.loginBtn}>Login</button>}</Link>
                 <Link to='/signup'><button className={styles.signupBtn}>Join Now</button></Link>
             </div> :
 

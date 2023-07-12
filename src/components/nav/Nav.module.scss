@@ -10,17 +10,39 @@
     justify-content: space-between;
     align-items: center;
 }
+.secNavbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 0px 170px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid #dfdfdf;
+}
 
-.logo {
+.logoWhite {
+    width: 150px;
+}
+
+.logoBlue {
     width: 150px;
 }
 
 .loginBtn {
     font-size: 18px;
+    color: #74849e;
+    font-weight: 500;
+}
+.secLoginBtn {
+    font-size: 18px;
     color: white;
     font-weight: 500;
 }
-
 .signupBtn {
     font-size: 18px;
     color: white;
@@ -41,12 +63,25 @@
 }
 
 
+@media screen and (max-width:900px) {
+
+    .secNavbar{
+        padding: 0px 70px;
+    }
+}
+@media screen and (max-width:450px) {
+
+    .secNavbar{
+        padding: 0px 40px;
+    }
+
+}
 @media screen and (max-width:600px) {
     .navbar {
         padding: 20px 25px;
     }
 
-    .logo {
+    .logoWhite {
         width: 100px;
     }
 

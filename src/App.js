@@ -3,7 +3,6 @@ import { Routes, Route, Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { DarkModeContext } from './contexts/ThemeContext';
-import JobPage from './pages/JobPage';
 import EachJob from './pages/EachJob';
 import Error from './pages/Error404';
 import './App.css'
@@ -11,6 +10,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import PrivateRoute from './PrivateRoute';
 import MainPage from './pages/MainPage';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   const { darkMode } = useContext(DarkModeContext)
@@ -21,7 +21,7 @@ function App() {
             <Route exact path="/" element={<MainPage />} />
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/signin" element={<SignIn />} />
-            <Route exact path="/home" element={<JobPage />} />
+            <Route exact path="/home" element={<SearchPage />} />
 {/*            <Route exact path="/home" element={<PrivateRoute><JobPage /></PrivateRoute>} />
 */}
             <Route exact path="/job/:id" element={<EachJob />} />

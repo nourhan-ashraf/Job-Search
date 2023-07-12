@@ -15,7 +15,7 @@ const Description = (props) => {
     return (
         <div className={styles.pagePadding} >
             <div className={styles.siteName}>
-                <Link to="/">
+                <Link to="/home">
                     <Flex flexDirection="row" marginBottom="15px">
                         <h1 className={darkMode ? styles.logoBDark : styles.logoB}>Find&nbsp;</h1>
                         <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1>
@@ -27,7 +27,7 @@ const Description = (props) => {
 
             <div className={styles.flexGrid}>
                 <div >
-                    <Link to="/" >
+                    <Link to="/home" >
                         <h1 className={styles.back}>
                             <Flex className={styles.siteName} flexDirection="row" justify="start" align="center">
                                 <IoReturnUpBackOutline color="1E86FF" size={25} />&nbsp;Back to search

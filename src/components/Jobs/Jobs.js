@@ -5,8 +5,9 @@ import { Pagination } from "react-bootstrap";
 import { Flex, Wrap, WrapItem } from '@chakra-ui/react'
 
 import { DarkModeContext } from "../../contexts/ThemeContext";
-import styles from './jobs.module.css'
+import styles from './jobs.module.scss'
 import JobCard from "../JobCard/JobCard";
+import { BsSearch } from "react-icons/bs";
 
 const Jobs = () => {
 
@@ -15,9 +16,9 @@ const Jobs = () => {
     const [res, setRes] = useState("")
     let [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
-
+   
     console.log(query)
-    const url = query ? `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=${query}&PageSize=12&PageNumber=${page}` : `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=w&PageSize=12&PageNumber=${page}`;
+    let url = query ? `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=${query}&PageSize=10&PageNumber=${page}` : `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=w&PageSize=10&PageNumber=${page}`;
     const options = {
         method: 'GET',
         headers: {
@@ -25,6 +26,7 @@ const Jobs = () => {
             'X-RapidAPI-Host': 'jobsearch4.p.rapidapi.com'
         }
     };
+   
 
     useEffect(() => {
 
@@ -64,9 +66,6 @@ const Jobs = () => {
         fetchJobs();
     }, [query])
 
-
-    let totalPages = Math.ceil(res.totalRecords / 12)
-
     function adjustPage(amount) {
         page = page + amount
         setPage(page)
@@ -90,35 +89,50 @@ const Jobs = () => {
     }
     return (
         <div className={styles.pagePadding} >
-            <div className={styles.gap}>
-                <button onClick={(e) => {
+            {/*  <div className={styles.gap}>
+               <button onClick={(e) => {
                     toggleModes();
                     e.stopPropagation();
                     e.preventDefault();
                 }}>
                     <img className={styles.mode} src={darkMode ? sun : moon} />
-                </button>
+            </button>
                 <Link to="/">
                     <Flex flexDirection="row" >
                         <h1 className={darkMode ? styles.logoBDark : styles.logoB}>Find&nbsp;</h1>
                         <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1>
                     </Flex>
                 </Link>
-            </div>
+            </div>*/}
             <div className={styles.container}>
-                <img src="/backgroundImg.png" className={styles.bg} />
+                <div className={styles.bg}></div>
 
                 <div className={styles.centered}>
+                    <form>
                     <Flex flexDir="row" align="center" justify="end">
-                        <input className={styles.search} placeholder="Enter Job Title or Keywords.." onChange={event => setQuery(event.target.value)} />
+                        <div className={styles.searchContainer}>
+                            <BsSearch className={styles.icon} />
+                            <input
+                                className={styles.searchBar}
+                                placeholder="Search by Job Title, Keywords or Location (e.g. Sales in Cairo)"
+                                type="text"
+                                value={query}
+                                onChange={event => setQuery(event.target.value)} />
+
+                            <div className={styles.searchComponents}>
+                                <button className={styles.searchBtn} type="submit">Search</button>
+                            </div>
+                        </div>
+                        <br />
                     </Flex>
+                    </form>
                 </div>
 
             </div>
             <br />
             <br />
             <br />
-            <Wrap spacing='70px' justify="center">
+            <Wrap className={styles.cardsMargin} spacing='70px' justify="center">
                 {
 
                     res.data && Array.isArray(res.data) ? (
