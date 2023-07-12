@@ -10,12 +10,12 @@ import { BsSearch } from "react-icons/bs";
 
 const Jobs = () => {
 
-    const { darkMode, toggleModes } = useContext(DarkModeContext)
+    let { darkMode, toggleModes } = useContext(DarkModeContext)
     const [query, setQuery] = useState(localStorage.getItem('query'))
     const [res, setRes] = useState("")
     let [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
-
+    darkMode = false
     console.log(query)
     let url = query ? `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=${query}&PageSize=10&PageNumber=${page}` : `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search?SearchQuery=w&PageSize=10&PageNumber=${page}`;
     const options = {

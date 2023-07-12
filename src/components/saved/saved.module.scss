@@ -1,0 +1,30 @@
+.padding {
+    padding: 40px 170px;
+}
+
+.title {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.subTitle {
+    color: #4D6182;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:600px) {
+    .title {
+        font-size: 20px;
+    }
+
+    .subTitle {
+        font-size: 12px;
+    }
+}

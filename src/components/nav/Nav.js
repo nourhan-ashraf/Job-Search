@@ -20,7 +20,7 @@ const Nav = () => {
             console.log(error)
         });
     }
-    const pathname = window.location.pathname
+    let pathname = window.location.pathname
 
     useEffect(() => {
         if (pathname === '/saved') {
