@@ -12,6 +12,7 @@ import PrivateRoute from './PrivateRoute';
 import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
 import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 
 function App() {
   const { darkMode } = useContext(DarkModeContext)
@@ -24,6 +25,8 @@ function App() {
         <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/home" element={<SearchPage />} />
         <Route exact path="/profile" element={<Profile />} />
+        {<Route exact path="/edit" element={<EditProfile />}/>}
+
         {/*            <Route exact path="/home" element={<PrivateRoute><JobPage /></PrivateRoute>} />
 */}
         <Route exact path="/job/:id" element={<EachJob />} />

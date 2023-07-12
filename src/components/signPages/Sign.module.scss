@@ -71,6 +71,10 @@
     border-radius: 4px;
     width: 400px;
     padding: 10px 10px;
+    &:focus {
+        outline: 1px solid #a0c6ff;
+        box-shadow: rgba(#619aef, 0.2) 0px 1px 2px 0px, rgba(#619aef, 0.15) 0px 2px 6px 2px;
+    }
 
 }
 

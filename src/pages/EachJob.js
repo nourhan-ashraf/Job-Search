@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import Description from "../components/Description/Description";
 import ScrollToTop from "../ScrollToTop";
-
+import Nav from '../components/nav/Nav'
 const EachJob = () => {
     const [job, setJob] = useState();
     const { id } = useParams()
@@ -37,6 +37,10 @@ const EachJob = () => {
     return (
         <div style={{ minHeight: "720px" }}>
             <ScrollToTop />
+            <Nav />
+            <div style={{ paddingTop: "60px" }}>
+
+            </div>
             <Description job={job} />
         </div>
     )

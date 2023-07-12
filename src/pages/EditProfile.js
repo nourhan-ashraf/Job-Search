@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Jobs from "../components/Jobs/Jobs";
 import Nav from "../components/nav/Nav";
+import Edit from "../components/profile/Edit";
 
-const SearchPage = () => {
+const EditProfile = () => {
     useEffect(() => {
-        document.title = 'WUZZUF'; 
+        document.title = 'Edit Profile | WUZZUF'; 
       }, []);
     return (
         <div>
@@ -12,9 +12,9 @@ const SearchPage = () => {
             <div style={{ paddingTop: "60px" }}>
 
             </div>
-            <Jobs />
+            <Edit />
         </div>
     )
 }
 
-export default SearchPage
+export default EditProfile

@@ -2,19 +2,18 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Badge, Button } from "react-bootstrap";
 import { Flex } from "@chakra-ui/react";
-import { IoReturnUpBackOutline } from 'react-icons/io5';
 import { ImLocation } from 'react-icons/im';
 import { MdDateRange } from "react-icons/md";
 
 import { DarkModeContext } from "../../contexts/ThemeContext";
-import styles from './Description.module.css';
+import styles from './Description.module.scss';
 
 const Description = (props) => {
     const { darkMode } = useContext(DarkModeContext)
     console.log(props.job)
     return (
         <div className={styles.pagePadding} >
-            <div className={styles.siteName}>
+           {/* <div className={styles.siteName}>
                 <Link to="/home">
                     <Flex flexDirection="row" marginBottom="15px">
                         <h1 className={darkMode ? styles.logoBDark : styles.logoB}>Find&nbsp;</h1>
@@ -22,10 +21,13 @@ const Description = (props) => {
                     </Flex>
                 </Link>
             </div>
+    <br />*/}
+            <br />
             <br />
             <br />
 
-            <div className={styles.flexGrid}>
+
+          {/*  <div className={styles.flexGrid}>
                 <div >
                     <Link to="/home" >
                         <h1 className={styles.back}>
@@ -44,7 +46,7 @@ const Description = (props) => {
                             <Button size="md" style={{ fontWeight: "bold" }}>Apply</Button>
                         </Link>
                     </div>
-                </div>
+</div>*/}
 
                 <div>
                     <h1 className={darkMode ? styles.decriptionTitleDark : styles.decriptionTitle}>{props.job && props.job.title}</h1>
@@ -78,15 +80,17 @@ const Description = (props) => {
 
                     <p className={darkMode ? styles.decriptionDark : styles.decription} dangerouslySetInnerHTML={{ __html: props.job && props.job.originalPosting }}></p>
                     <br />
-                    <div className={styles.show}>
-                        <h1 className={styles.apply}>HOW TO APPLY</h1>
+                    <div>
+                        {/*<h1 className={styles.apply}>HOW TO APPLY</h1>*/}
                         <Link to={`${props.job && props.job.url}`}>
-                            <Button size="md" style={{ fontWeight: "bold" }}>Apply</Button>
+                            <Button size="md" className={styles.applyBtn}>Apply</Button>
                         </Link>
+                        <br />
+                        <br />
+
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 export default Description

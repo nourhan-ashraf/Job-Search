@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
 import { Pagination } from "react-bootstrap";
 import { Flex, Wrap, WrapItem } from '@chakra-ui/react'

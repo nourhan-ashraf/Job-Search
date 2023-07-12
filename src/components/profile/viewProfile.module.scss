@@ -1,14 +1,26 @@
+.profile{
+    padding: 40px 170px;
+}
 .card {
     background-color: white;
     padding: 30px 40px;
+    margin: 40px 0;
     border: 1px solid #dedede;
+    border-radius: 7px;
+    height: auto;
+    color: #001433;
+}
+.cardNoBg{
+    padding: 30px 40px;
     margin: 40px 170px;
     border-radius: 7px;
     height: auto;
     color: #001433;
 }
-
-.indoCard {
+.image{
+    width: 140px;
+}
+.infoCard {
     background-color: white;
     padding: 20px 20px;
     border: 1px solid #dedede;
@@ -17,11 +29,18 @@
     color: #001433;
 }
 
-.image {
-    width: 140px;
-}
 
 .userInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.profileTitle{
+    font-size: 17px;
+}
+.userInfoEdit {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -105,6 +124,23 @@
     font-weight: light;
 }
 
+.summary {
+    text-align: justify;
+}
+
+.summaryInput{
+    width: 100%;
+    padding: 15px 15px;
+    height: 150px;
+    resize: none;
+    border: rgb(206, 206, 206) solid 1px;
+    border-radius: 4px;
+    &:focus {
+        outline: 1px solid #a0c6ff;
+        box-shadow: rgba(#619aef, 0.2) 0px 1px 2px 0px, rgba(#619aef, 0.15) 0px 2px 6px 2px;
+    }
+}
+
 .email {
     display: flex;
     flex-direction: row;
@@ -131,10 +167,89 @@
     border-radius: 4px;
     margin-right: 10px;
 }
+.saveBtn{
+    margin-top: 10px;
+    background-color: #0055D9;
+    border-radius: 2px;
+    font-weight: 500;
+    &:hover{
+        background-color: #2275f1;
+    }
+}
+.skills{
+    background: transparent;
+    border-radius: 20px;
+    resize: none;
+    border: rgb(206, 206, 206) solid 1px;
+    border-radius: 4px;
+    width: 100%;
+    padding: 10px 10px;
+    &:focus {
+        outline: 1px solid #a0c6ff;
+        box-shadow: rgba(#619aef, 0.2) 0px 1px 2px 0px, rgba(#619aef, 0.15) 0px 2px 6px 2px;
+    }
+  }
+  
+  .body{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+  } 
 
+  .allAdd{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    flex-wrap: wrap;
+    padding-bottom: 16px;
+    padding-right: 10px;
+  }
+  
+  .addGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #334B6F;
+    border: 1px solid #334B6F;
+    border-radius: 4px;
+    padding: 2px 7px;  
+    font-weight: 600;
+  }
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-bottom: 40px;
+}
+.label{
+    color:#334B6F;
+    font-weight: 500;
+    font-size: 15px;
+}
+.spaceevenly{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+}
+.input {
+    border: rgb(206, 206, 206) solid 1px;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 10px;
+    &:focus {
+        outline: 1px solid #a0c6ff;
+        box-shadow: rgba(#619aef, 0.2) 0px 1px 2px 0px, rgba(#619aef, 0.15) 0px 2px 6px 2px;
+    }
+
+}
 @media screen and (max-width:900px) {
     .image {
-        width: 15vw;
+        width: 120px;
     }
 
     .name {
@@ -148,21 +263,35 @@
     .icons {
         font-size: 17px;
     }
+   
 
 }
 
 @media screen and (max-width:800px) {
-    .card {
-        margin: 40px 50px;
+    .profile {
+        padding: 40px 50px;
 
     }
+    .spaceevenly{
+        grid-template-columns: 1fr 2fr;
+    }
+
 }
 
-
+@media screen and (max-width:750px) {
+    .cardNoBg{
+        margin: 40px 50px;
+    }
+}
 @media screen and (max-width:555px) {
+    .image {
+        width: 90px;
+    }
     .card {
-        margin: 40px 0px;
         padding: 30px 20px;
+    }
+    .profile{
+        padding: 40px 0px;
     }
 
     .job {
@@ -173,4 +302,18 @@
         font-size: 17px;
         gap: 5px;
     }
+    .spaceevenly{
+        grid-template-columns: 1fr 1fr;
+    }
+ 
+  
+    .userInfoEdit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+    
 }
+
