@@ -1,6 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import { db } from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 import styles from './Sign.module.scss';
 
@@ -11,6 +13,17 @@ const Sign = () => {
     const { signin, signup } = useContext(AuthContext)
     const pathname = window.location.pathname
     const navigate = useNavigate()
+    const [blogs, setBlogs] = useState()
+
+
+    const fetchBlogs = async () => {
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+        });
+        setBlogs(blogs)
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -40,6 +53,9 @@ const Sign = () => {
                 })
         }
     }
+    useEffect(() => {
+        fetchBlogs();
+    }, [])
 
     return (
         <div>

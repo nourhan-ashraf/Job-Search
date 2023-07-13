@@ -2,8 +2,16 @@
     padding: 40px 170px;
 }
 
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50%;
+
+}
+
 .title {
-    color: black;
+    color: #001433;
     font-weight: bold;
     font-size: 25px;
 }

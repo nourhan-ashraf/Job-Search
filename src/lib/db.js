@@ -1,6 +1,6 @@
-import {auth} from '../firebase'
+import {db} from '../firebase'
 
-const firestore = auth.firestore()
+const firestore = db.firestore()
 
 export function updateUser(uid, data) {
   return firestore.collection('users').doc(uid).update(data)

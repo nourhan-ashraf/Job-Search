@@ -84,7 +84,7 @@ const Jobs = () => {
 
 
     if (loading) {
-        return <Spinner animation="border" variant="primary" />;
+        return <Spinner className={styles.spinner} animation="border" variant="primary" />;
     }
     return (
         <div className={styles.pagePadding} >

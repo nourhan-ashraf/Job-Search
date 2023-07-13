@@ -92,7 +92,13 @@ body {
     }
 
 }
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50%;
 
+}
 ::-webkit-input-placeholder {
     max-width: 35vw;
 }
