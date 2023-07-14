@@ -5,7 +5,7 @@
 
 <br />
 
-## description
+## Description
 
 The aim of this project was to develop a job search website using a React frontend library integrated with an API. The website offers multiple functionalities to improve the user experience. Users can search for jobs based on keywords or job titles. The job listings provide important details such as company name, location, tags, and posting time. When a user selects a job, they can access comprehensive job descriptions and instructions on how to apply.
 
@@ -48,8 +48,9 @@ For authentication, Firebase is utilized, serving as a serverless database and s
 
  
 ## Demo
-Version 2.0.0 Demo
-[wuzzuf.webm](https://github.com/nourhan-ashraf/Job-Search/assets/66208099/664194e3-9108-4ddb-a863-1e1968e653d1)
+Version 2.0.0 (The Latest) Demo
+
+https://github.com/nourhan-ashraf/Job-Search/assets/66208099/770e307f-8967-4a3c-8c06-5cf6585e3d9f
 
 <br />
 
