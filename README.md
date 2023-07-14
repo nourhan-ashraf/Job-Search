@@ -1,7 +1,4 @@
 # Job listing and search website using an API
-<img width='40px' src='https://github.com/nourhan-ashraf/Job-Search/assets/66208099/5acf0096-14a1-46e9-81e0-d66f6e585db5' />
-Currently, the project is undergoing changes to incorporate new features.
-<img width='40px' src='https://github.com/nourhan-ashraf/Job-Search/assets/66208099/5acf0096-14a1-46e9-81e0-d66f6e585db5' />
 
 ### Contents:
 [Description](#description) &nbsp; | &nbsp; [Features](#features) &nbsp; | &nbsp; [Technologies used](#technologies-used) &nbsp; | &nbsp; [Demo](#demo) &nbsp; |  &nbsp;[Deployment](#deployment) &nbsp; | &nbsp; [API](#api) &nbsp; | &nbsp; [LICENSE](#license)
@@ -12,7 +9,7 @@ Currently, the project is undergoing changes to incorporate new features.
 
 The aim of this project was to develop a job search website using a React frontend library integrated with an API. The website offers multiple functionalities to improve the user experience. Users can search for jobs based on keywords or job titles. The job listings provide important details such as company name, location, tags, and posting time. When a user selects a job, they can access comprehensive job descriptions and instructions on how to apply.
 
-In the latest version, users have the option to sign up or log in and personalize their profiles with their own information. They can also save jobs to revisit them at a later time. 
+I improved the user interface in the most recent update to resemble the Wuzzuf interface. Users now have the choice to either create an account or log in, enabling them to customize their profiles by adding personal information. Additionally, they have the ability to save job listings for future reference.
 
  <br/> 
 
@@ -32,12 +29,13 @@ In the latest version, users have the option to sign up or log in and personaliz
 
 ## Technologies used
 
-The web application development is done using React JS
+React JS for web application development
 
 React Bootstrap and Chakra UI as CSS frameworks
 
 For authentication, Firebase is utilized, serving as a serverless database and storage solution. 
 
+<img src="https://github.com/nourhan-ashraf/Job-Search/assets/66208099/2b671a43-0339-4b44-b90a-89169b0d8b64" alt="sass logo" width="60">
 <img src="https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/e8978ade-3412-45ec-8177-7da09ded7248" alt="React JS" width="70">
 <img src="https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/d9ee316e-3b29-45c8-a3d2-cda75a45a34e" alt="React Bootstrap" width="50">
 &nbsp;
@@ -50,8 +48,12 @@ For authentication, Firebase is utilized, serving as a serverless database and s
 
  
 ## Demo
-Stay tuned for Version 2.0.0 Demo, until then check out this demonstration for Version 1.0.0
+Version 2.0.0 Demo
+[wuzzuf.webm](https://github.com/nourhan-ashraf/Job-Search/assets/66208099/664194e3-9108-4ddb-a863-1e1968e653d1)
 
+<br />
+
+Version 1.0.0 Demo
 [FindJobs.webm](https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/f3b3d573-510c-498c-977a-ce4a7abefa35)
 
  <br/> 
@@ -69,6 +71,15 @@ The provided API link is experiencing issues, which are affecting the pagination
 
  <br/> 
 
+
+## Future work
+
+- Job Matching
+- Advanced Job Filtering
+- Dark and Light Modes
+
+ <br />
+ 
 ## LICENSE
 
 This project is licensed under the [MIT License] - see the [LICENSE](LICENSE.md) file for details.
