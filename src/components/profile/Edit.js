@@ -4,14 +4,14 @@ import { Button } from "react-bootstrap";
 import { IoCloseSharp } from 'react-icons/io5'
 import { db, storage } from "../../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const Edit = () => {
-
+  const navigate = useNavigate()
   const { id } = useParams()
-  const { user , upload} = useAuth()
+  const { user, upload } = useAuth()
   const [summary, setSummary] = useState()
   const [image, setImage] = useState()
   const [username, setUsername] = useState()
@@ -26,13 +26,14 @@ const Edit = () => {
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState('');
   const [photoURL, setPhotoURL] = useState('https://imgtr.ee/image/UWQIm')
+  const [err, setErr] = useState('loading')
   const fileInputRef = useRef(null);
 
- 
+
 
   const showPhoto = async (uid) => {
     const storageRef = ref(storage, `${uid}.png`);
-  
+
     try {
       const downloadURL = await getDownloadURL(storageRef);
       console.log("Download URL:", downloadURL);
@@ -50,7 +51,7 @@ const Edit = () => {
 
     }
   };
-  
+
   const handlePhotoUpload = (event) => {
     if (event.target.files[0]) {
       setImage(event.target.files[0]);
@@ -118,8 +119,10 @@ const Edit = () => {
     try {
       await updateDoc(userRef, updatedData);
       console.log("Document updated successfully!");
+      setErr('success')
     } catch (error) {
       console.error("Error updating document:", error);
+      setErr('error')
     }
   };
 
@@ -133,14 +136,14 @@ const Edit = () => {
       <div className={styles.cardNoBg}>
         <div className={styles.space}>
           <div className={styles.userInfoEdit}>
-            <img className={styles.image} src={photoURL} />
+          {photoURL ? <img className={styles.image} src={photoURL} /> : <img className={styles.image} src="https://imgtr.ee/image/UWQIm" />}
             <div className={styles.col}>
               <div className={styles.title}>Profile Photo</div>
               <div className={styles.location}>Upload your photo for others to get to know you better.</div>
+              
               <input
                 type="file"
-                ref={fileInputRef}
-                onChange={(e)=>handlePhotoUpload(e)}
+                onChange={(e) => handlePhotoUpload(e)}
                 accept="image/*"
               />
               <Button className={styles.saveBtn} onClick={handleButtonClick}>Upload Your Photo</Button>
@@ -301,9 +304,11 @@ const Edit = () => {
           /></div>
 
       </div>
+
       <div className={styles.btn}>
-        <Button onClick={() => updateDataById(id, { displayName: username, summary: summary, linkedin: linked, skills: items, linkedin: linked, github: github, stackoverflow: stack, portfolio: portfolio, phone: phone, country: country, job: job, image:photoURL })} className={styles.saveBtn}>Save Changes</Button>
-      </div>
+          <Button onClick={() => updateDataById(id, { displayName: username, summary: summary, linkedin: linked, skills: items, linkedin: linked, github: github, stackoverflow: stack, portfolio: portfolio, phone: phone, country: country, job: job, image: photoURL })} className={styles.saveBtn}>Save Changes</Button>
+         </div>
+         {err==='loading' ? "" : err==='success' ?  navigate(`/profile/${id}`) : "error"}
     </div>
   )
 }

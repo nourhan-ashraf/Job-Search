@@ -34,7 +34,7 @@ function App() {
 
         <Route exact path="/profile/:id" element={<Profile />} />
         <Route exact path="/edit/:id" element={<PrivateRoute><EditProfile /></PrivateRoute>} />
-        <Route exact path="/saved/:id" element={<SavedJobs />} />
+        <Route exact path="/saved/:id" element={<PrivateRoute><SavedJobs /></PrivateRoute>} />
 
         <Route exact path="/job/:id" element={<EachJob />} />
         <Route exact={true} path="/*" element={<Error />} />

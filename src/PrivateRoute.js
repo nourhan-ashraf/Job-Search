@@ -4,6 +4,8 @@ import { Navigate } from "react-router-dom";
 
 function PrivateRoute({ children }) {
     const { user } = useAuth()
+    console.log(children)
+
     return (
         user ? children : <Navigate to={'/home'} />
     )

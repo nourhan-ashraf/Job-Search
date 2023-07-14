@@ -77,7 +77,7 @@ const Nav = () => {
             </div> :
 
                 <Center>
-                    <img className={styles.avatar} src={photoURL} />
+            {photoURL ? <img className={styles.avatar} src={photoURL} /> : <img className={styles.avatar} src="https://imgtr.ee/image/UWQIm" />}
                     <Menu>
                         <MenuButton
                             border={"none"}

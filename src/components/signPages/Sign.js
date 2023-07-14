@@ -3,8 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 import styles from './Sign.module.scss';
-import { collection, doc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import { Center } from "@chakra-ui/react";
 
 
 const Sign = () => {
@@ -23,9 +24,9 @@ const Sign = () => {
     const [skills, setSkills] = useState([])
     const [savedJobs, setSavedJobs] = useState([])
     const { signin, signup } = useContext(AuthContext)
+    const [err, setErr] = useState('no error')
     const pathname = window.location.pathname
     const navigate = useNavigate()
-    const CollectionRef = collection(db, "users");
 
 
     const saveUserProfileToFirestore = async (userId, displayName, phone) => {
@@ -49,6 +50,7 @@ const Sign = () => {
             });
             console.log("User profile saved to Firestore successfully!");
         } catch (error) {
+            setErr('An error happened while creating the user, please try again')
             console.error("Error saving user profile to Firestore:", error);
         }
     };
@@ -66,6 +68,7 @@ const Sign = () => {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    setErr(errorMessage)
                     console.log(errorCode, errorMessage)
                 });
         }
@@ -79,6 +82,7 @@ const Sign = () => {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    setErr(errorMessage)
                     console.log(errorCode, errorMessage)
                 })
         }
@@ -157,7 +161,12 @@ const Sign = () => {
                         >
                             {pathname === '/signin' ? "Sign in" : "Sign up"}
                         </button>
+                        <br />
+                        <br />
 
+                        <Center style={{color:"red", fontWeight:"500"}}>
+{err==='no error' ? "": err.slice(10)}
+</Center>
                     </form>
 
                     {pathname === '/signin' ?
