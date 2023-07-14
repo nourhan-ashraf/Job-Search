@@ -48,7 +48,7 @@ const Nav = () => {
     useEffect(()=>{
         if(user)
             getDataById(id)
-    },[])
+    },[user])
 
     useEffect(() => {
         if (pathname === `/saved/${id}`) {

@@ -24,6 +24,7 @@ const Saved = () => {
                 const data = docSnapshot.data();
 
                 setSaved(data.savedJobs)
+                setIsLoading(false)
 
             } else {
                 console.log("Document does not exist");
@@ -34,42 +35,42 @@ const Saved = () => {
         }
     };
 
+    const fetchJobs = async () => {
+        try {
+            const jobPromises = saved.map(async (slug) => {
+                const url = `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/${slug}`;
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
+                        'X-RapidAPI-Host': 'jobsearch4.p.rapidapi.com'
+                    }
+                };
 
-    useEffect(() => {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                return result;
+            });
+
+            const jobResults = await Promise.all(jobPromises);
+            setJobs(jobResults);
+            setIsLoading(false)
+
+        } catch (error) {
+            console.error(error);
+            setIsLoading(false)
+
+        }
+    };
+    useEffect(()=>{
         getDataById(id)
 
-        const fetchJobs = async () => {
-            try {
-                const jobPromises = saved.map(async (slug) => {
-                    const url = `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/${slug}`;
-                    const options = {
-                        method: 'GET',
-                        headers: {
-                            'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
-                            'X-RapidAPI-Host': 'jobsearch4.p.rapidapi.com'
-                        }
-                    };
-
-                    const response = await fetch(url, options);
-                    const result = await response.json();
-                    return result;
-                });
-
-                const jobResults = await Promise.all(jobPromises);
-                setJobs(jobResults);
-                setIsLoading(false)
-
-            } catch (error) {
-                console.error(error);
-                setIsLoading(false)
-
-            }
-        };
-
+    },[])
+    useEffect(() => {
 
         fetchJobs();
 
-    }, []);
+    }, [saved]);
     if (isLoading) {
         return <Spinner className={styles.spinner} animation="border" variant="primary" />;
     }
