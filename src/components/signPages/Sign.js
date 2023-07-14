@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 import styles from './Sign.module.scss';
-import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 
@@ -60,7 +60,7 @@ const Sign = () => {
             await signin(email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
-                    navigate("/")
+                    navigate(`/home/${user.uid}`)
                     console.log(user);
                 })
                 .catch((error) => {
@@ -73,7 +73,7 @@ const Sign = () => {
             await signup(email, password).then((userCredential) => {
                 const user = userCredential.user;
                 saveUserProfileToFirestore(user.uid, username, email)
-                navigate('/')
+                navigate(`/home/${user.uid}`)
                 console.log(user)
             })
                 .catch((error) => {

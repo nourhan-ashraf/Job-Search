@@ -23,15 +23,17 @@ function App() {
   return (
     <div className={darkMode ? "bgLight" : "bgLight"}>
       <Routes>
-        <Route exact path="/" element={<MainPage />} />
-        {<Route exact path="/signup" element={<PrivateRoute><SignUp /></PrivateRoute>} />}
-        {<Route exact path="/signin" element={<PrivateRouteSign><SignIn /></PrivateRouteSign>} />}
-        <Route exact path="/home" element={<SearchPage />} />
+        <Route exact path="/:id" element={<PrivateRouteSign><MainPage /></PrivateRouteSign>} />
+        <Route exact path="/" element={<PrivateRouteSign><MainPage /></PrivateRouteSign>} />
+
+        <Route exact path="/signup" element={<PrivateRouteSign><SignUp /></PrivateRouteSign>} />
+        <Route exact path="/signin" element={<PrivateRouteSign><SignIn /></PrivateRouteSign>} />
+        <Route exact path="/home" element={<PrivateRouteSign><SearchPage /></PrivateRouteSign>} />
         <Route exact path="/home/:id" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
 
 
         <Route exact path="/profile/:id" element={<Profile />} />
-        {<Route exact path="/edit/:id" element={<PrivateRoute><EditProfile /></PrivateRoute>} />}
+        <Route exact path="/edit/:id" element={<PrivateRoute><EditProfile /></PrivateRoute>} />
         <Route exact path="/saved/:id" element={<SavedJobs />} />
 
         <Route exact path="/job/:id" element={<EachJob />} />

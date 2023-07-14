@@ -1,11 +1,11 @@
 import React from "react";
 import { useAuth } from "./contexts/AuthContext";
-import { Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 function PrivateRouteSign({ children }) {
     const { user } = useAuth()
     return (
-        user ? <Navigate to={'/'} /> : children
+        user ? <Navigate to={`/home/${user?.uid}`} /> : children
     )
 }
 

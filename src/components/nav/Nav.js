@@ -14,7 +14,8 @@ const Nav = () => {
     const [savedClick, setSavedClick] = useState()
     const [exploreClick, setExploreClick] = useState()
     const {id} = useParams()
-    const [photoURL, setPhotoURL] = useState('https://imgtr.ee/image/UWQIm')
+    console.log(id)
+    const [photoURL, setPhotoURL] = useState('')
     const handleLogout = () => {
         signout(auth).then(() => {
             navigate("/");
@@ -48,7 +49,7 @@ const Nav = () => {
         if(user)
             getDataById(id)
     },[])
-    
+
     useEffect(() => {
         if (pathname === `/saved/${id}`) {
             setSavedClick(true)
@@ -61,9 +62,9 @@ const Nav = () => {
     }, [pathname])
     console.log(pathname)
     return (
-        <nav className={pathname === '/' ? styles.navbar : styles.secNavbar}>
+        <nav className={pathname === '/' || pathname === `/${id}`  ? styles.navbar : styles.secNavbar}>
             <div className={styles.navComponents}>
-                <Link to='/'>
+                <Link to={user? `/${id}` : '/'}>
                     {pathname === '/' ? <img className={styles.logoWhite} src='https://wuzzuf.net/images/HomepageImages/logo-white.png' /> : <img className={styles.logoBlue} src='https://www.efgev.com/wp-content/uploads/Wuzzuf-Logo-1.png' />}
                 </Link>
                 {(user === null || pathname === '/') ? <div></div> : <div>{user ? <Link className={exploreClick ? styles.homeClicked : styles.home} to={`/home/${id}`}>EXPLORE</Link> : <Link className={exploreClick ? styles.homeClicked : styles.home} to='/home'>EXPLORE</Link>} <Link className={savedClick ? styles.savedClicked : styles.saved} to={`/saved/${id}`}>SAVED</Link></div>}

@@ -2,17 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from './viewProfile.module.scss'
 import { useAuth } from "../../contexts/AuthContext";
 import { MdEmail, MdModeEditOutline, MdOutlinePhoneIphone } from "react-icons/md";
-import { IoShareSocialSharp } from "react-icons/io5";
 import { Link, useParams } from "react-router-dom";
 import { ImLocation } from "react-icons/im";
 import { Button, Flex } from "@chakra-ui/react";
 import { FaGithub, FaLink, FaLinkedin } from "react-icons/fa";
 import { BsStackOverflow } from "react-icons/bs";
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
-import { getAuth } from "firebase/auth";
 
-const skills = ['React JS', 'Frontend', 'Backend', 'UI/UX', 'HTML', 'CSS', 'SASS', 'JS', 'Python', 'Chakra UI', 'Bootstrap']
 
 const ViewProfile = () => {
 
