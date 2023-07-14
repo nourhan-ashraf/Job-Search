@@ -10,38 +10,47 @@ Currently, the project is undergoing changes to incorporate new features.
 
 ## description
 
-The goal of this project was to create a job search website using an API with React frontend library. The website provides various functionalities to enhance the user experience. Users have the ability to search for jobs using keywords or Job title. The job listings include relevant information such as company name, location, tags, and posted time. When a user selects a job, they are able to view detailed job descriptions and information on how to apply.
- 
+The aim of this project was to develop a job search website using a React frontend library integrated with an API. The website offers multiple functionalities to improve the user experience. Users can search for jobs based on keywords or job titles. The job listings provide important details such as company name, location, tags, and posting time. When a user selects a job, they can access comprehensive job descriptions and instructions on how to apply.
+
+In the latest version, users have the option to sign up or log in and personalize their profiles with their own information. They can also save jobs to revisit them at a later time. 
+
  <br/> 
- 
+
+
 ## Features
 
-- Job search functionality based on keywords, job title.
-- Display of relevant job listings with detailed information.
-- Ability to view job descriptions and application details.
+- Sign up or log in using an email and password.
+- Edit your profile information in your personal profile.
+- Search for jobs using keywords and job titles.
+- View detailed information about relevant job listings.
+- Access job descriptions and application details.
+- Explore jobs without signing in.
+- Save jobs to revisit them later.
 - User-friendly interface for seamless navigation.
-- Support for both Light and Dark modes
 
  <br/> 
 
 ## Technologies used
 
-React JS for web application development
+The web application development is done using React JS
 
 React Bootstrap and Chakra UI as CSS frameworks
+
+For authentication, Firebase is utilized, serving as a serverless database and storage solution. 
 
 <img src="https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/e8978ade-3412-45ec-8177-7da09ded7248" alt="React JS" width="70">
 <img src="https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/d9ee316e-3b29-45c8-a3d2-cda75a45a34e" alt="React Bootstrap" width="50">
 &nbsp;
 <img src="https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/f7ae9703-3201-433b-87b8-f94176ba8b09" alt="Chakra UI" width="50">
-
+&nbsp;&nbsp;
+<img src="https://github.com/nourhan-ashraf/Job-Search/assets/66208099/02cc8a5b-cce7-4212-9230-61ce08941245" alt="firebase logo" width="40">
  <br/> 
  <br/> 
  
 
  
 ## Demo
-Check out this video for a demonstration.
+Stay tuned for Version 2.0.0 Demo, until then check out this demonstration for Version 1.0.0
 
 [FindJobs.webm](https://github.com/nourhan-ashraf/Github-Job-Search/assets/66208099/f3b3d573-510c-498c-977a-ce4a7abefa35)
 
