@@ -62,7 +62,8 @@ const Sign = () => {
             await signin(email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
-                    navigate(`/home/${user.uid}`)
+                    localStorage.setItem('uid', user.uid)
+                    navigate(`/home/${localStorage.getItem('uid')}`)
                     console.log(user);
                 })
                 .catch((error) => {
@@ -76,7 +77,8 @@ const Sign = () => {
             await signup(email, password).then((userCredential) => {
                 const user = userCredential.user;
                 saveUserProfileToFirestore(user.uid, username, email)
-                navigate(`/home/${user.uid}`)
+                localStorage.setItem('uid', user.uid)
+                navigate(`/home/${localStorage.getItem('uid')}`)
                 console.log(user)
             })
                 .catch((error) => {

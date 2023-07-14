@@ -13,8 +13,7 @@ const Nav = () => {
     const { signout, user } = useAuth()
     const [savedClick, setSavedClick] = useState()
     const [exploreClick, setExploreClick] = useState()
-    const {id} = useParams()
-    console.log(id)
+    const id = localStorage.getItem('uid')
     const [photoURL, setPhotoURL] = useState('')
     const handleLogout = () => {
         signout(auth).then(() => {

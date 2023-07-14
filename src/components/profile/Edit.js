@@ -10,7 +10,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const Edit = () => {
   const navigate = useNavigate()
-  const { id } = useParams()
+  const id = localStorage.getItem('uid')
   const { user, upload } = useAuth()
   const [summary, setSummary] = useState()
   const [image, setImage] = useState()

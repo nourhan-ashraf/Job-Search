@@ -7,12 +7,13 @@ import { Spinner } from "react-bootstrap";
 import { db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Saved = () => {
     const [jobs, setJobs] = useState([]);
-    const { id } = useParams()
     const [saved, setSaved] = useState([])
     const [isLoading, setIsLoading] = useState(true);
+    const id = localStorage.getItem('uid')
 
 
     const getDataById = async (userId) => {

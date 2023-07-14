@@ -13,7 +13,7 @@ import { db } from "../../firebase";
 
 const ViewProfile = () => {
 
-    const { id } = useParams()
+    const id = localStorage.getItem('uid')
     const [summary, setSummary] = useState()
     const [image, setImage] = useState(null)
     const [username, setUsername] = useState()

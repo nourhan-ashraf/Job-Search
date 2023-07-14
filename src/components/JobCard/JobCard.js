@@ -13,7 +13,7 @@ const JobCard = (props) => {
     let { darkMode } = useContext(DarkModeContext)
     const [bookmarkClick, setBookmarkClick] = useState(false)
     const [items, setItems] = useState([]);
-    const { id } = useParams()
+    const id = localStorage.getItem('uid')
     const { user } = useAuth()
     const [isJobSaved, setIsJobSaved] = useState(false);
 
