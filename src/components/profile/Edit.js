@@ -25,6 +25,7 @@ const Edit = () => {
   const [email, setEmail] = useState()
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState('');
+  const [imageStatus, setImageStatus] = useState('nothing')
   const [photoURL, setPhotoURL] = useState('https://imgtr.ee/image/UWQIm')
   const [err, setErr] = useState('loading')
   const fileInputRef = useRef(null);
@@ -46,10 +47,12 @@ const Edit = () => {
   };
   const handleButtonClick = async () => {
     if (image && id) {
+      setImageStatus('loading')
       await upload(id, image);
       await showPhoto(id);
-
     }
+    setImageStatus('nothing')
+
   };
 
   const handlePhotoUpload = (event) => {
@@ -57,6 +60,7 @@ const Edit = () => {
       setImage(event.target.files[0]);
       console.log(image)
     }
+
   };
 
 
@@ -146,7 +150,8 @@ const Edit = () => {
                 onChange={(e) => handlePhotoUpload(e)}
                 accept="image/*"
               />
-              <Button className={styles.saveBtn} onClick={handleButtonClick}>Upload Your Photo</Button>
+              {console.log(imageStatus)}
+              {imageStatus === 'nothing' ? <Button className={styles.saveBtn} onClick={handleButtonClick}>Upload Your Photo</Button> : imageStatus === 'loading' ? <Button disabled={true} className={styles.saveBtn} onClick={handleButtonClick}>Loading</Button> : <Button className={styles.saveBtn} onClick={handleButtonClick}>Upload Your Photo</Button> }
             </div>
           </div>
         </div>
@@ -237,14 +242,14 @@ const Edit = () => {
         <br />
 
         <div className={styles.body}>
-          {items.map((i) => (
+          {items.map((item, index) => (
             <div className={styles.allAdd}>
               <div className={styles.addGroup}>
 
-                {i}&nbsp;&nbsp;
+                {item}&nbsp;&nbsp;
                 <button
                   onClick={() => {
-                    deleteItem(i);
+                    deleteItem(index);
                   }}
                 >
                   <IoCloseSharp />
