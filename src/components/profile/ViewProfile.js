@@ -15,7 +15,7 @@ const ViewProfile = () => {
 
     const { id } = useParams()
     const [summary, setSummary] = useState()
-    const [image, setImage] = useState()
+    const [image, setImage] = useState(null)
     const [username, setUsername] = useState()
     const [job, setJob] = useState()
     const [country, setCountry] = useState()
@@ -86,11 +86,11 @@ const ViewProfile = () => {
             <div className={styles.card}>
                 <div className={styles.space}>
                     <div className={styles.userInfo}>
-                        <img className={styles.image} src={image} />
+                        {image ? <img className={styles.image} src={image} /> : <img className={styles.image} src='/user.png' />}
                         <div className={styles.col}>
                             <div className={styles.name}> {username}</div>
                             <div className={styles.job}>{job}</div>
-                            <div className={styles.location}><div className={styles.emailIcon}><ImLocation /></div>{country}</div>
+                            {country ? <div className={styles.location}><div className={styles.emailIcon}><ImLocation /></div>{country}</div> : ""}
                             <div className={styles.iconsG1}>
                                
                                 {linked ?<Link to={linked.startsWith("http") ? linked : `https://${linked}`} target="blank" ><Button padding="5px" className={styles.emailIcon}><FaLinkedin /></Button></Link> : ""}
@@ -113,19 +113,24 @@ const ViewProfile = () => {
                 <br />
                 <div className={styles.infoCard}>
                     <div className={styles.title}>Summary</div>
-                    <div className={styles.summary}>{summary}</div>
+                    {summary ? <div className={styles.summary}>{summary}</div> : <div className={styles.summary}><br/>No info yet..</div>}
 
                 </div>
                 <br />
                 <div className={styles.infoCard}>
                     <div className={styles.title}>Contact Info</div>
-                    <div className={styles.email}><div className={styles.emailIcon}><MdOutlinePhoneIphone /></div>{phone}</div>
+                    {phone ? <div className={styles.email}><div className={styles.emailIcon}><MdOutlinePhoneIphone /></div>{phone}</div> : ""}
                     <div className={styles.email}><div className={styles.emailIcon}><MdEmail /></div>{email}</div>
 
 
                 </div>
             </div>
-            <div className={styles.card}>
+            {console.log(skills)}
+            {console.log(country, 'yelllooo')}
+            {console.log( 'yelllooo')}
+
+
+          {skills.length ?  <div className={styles.card}>
                 <div className={styles.title}>Skills and Tools:</div>
                 <br />
                 <Flex flexDirection="row" align="center" flexWrap="wrap">
@@ -139,7 +144,7 @@ const ViewProfile = () => {
                         )
                     })}
                 </Flex>
-            </div>
+            </div> : ""}
 
         </div>
     )
