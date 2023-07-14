@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateEmail, updatePassword } from "firebase/auth";
-import { auth, db } from "../firebase";
+import { createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateEmail, updatePassword, updateProfile } from "firebase/auth";
+import { auth, db, storage } from "../firebase";
+import { ref, uploadBytes } from "firebase/storage";
 
 export const AuthContext = createContext()
 
@@ -16,11 +17,7 @@ export const AuthProvider = ({ children }) => {
     }, [])
 
     function signup(email, password) {
-        return createUserWithEmailAndPassword(auth, email, password).then((cred)=>{
-            return db.collection('users').add().doc(cred.user.uid).set({
-                name: 'user 1'
-            })
-        })
+        return createUserWithEmailAndPassword(auth, email, password)
     }
     function signin(email, password) {
         return signInWithEmailAndPassword(auth, email, password)
@@ -34,11 +31,17 @@ export const AuthProvider = ({ children }) => {
     function updateUserPassword(user, password) {
         return updatePassword(user, password)
     }
+
+    
     function forgotPassword(email) {
         return sendPasswordResetEmail(auth, email)
     }
+    function upload (uid, file){
+        const fileRef = ref(storage, uid+'.png')
+        uploadBytes(fileRef, file)
+    }
     return (
-        <AuthContext.Provider value={{ user, signin, signup, signout, updateUserEmail, updateUserPassword, forgotPassword }}>
+        <AuthContext.Provider value={{ user, signin, signup, signout, updateUserEmail, updateUserPassword, forgotPassword, upload }}>
             {children}
         </AuthContext.Provider>
     )

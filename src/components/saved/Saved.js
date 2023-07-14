@@ -2,19 +2,45 @@ import React, { useEffect, useState } from "react";
 import styles from './saved.module.scss'
 import styles2 from '../profile/viewProfile.module.scss'
 import JobCard from "../JobCard/JobCard";
-import { Wrap, WrapItem } from "@chakra-ui/react";
+import { Flex, WrapItem } from "@chakra-ui/react";
 import { Spinner } from "react-bootstrap";
+import { db } from "../../firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useParams } from "react-router-dom";
 
 const Saved = () => {
-    const slugs = ['senior-projectsystems-engineer-3791', 'test-administrator-boise-id-2738', 'sr.-android-engineer-atg-7955', 'full-stack-cloud-architect-3277'];
     const [jobs, setJobs] = useState([]);
+    const { id } = useParams()
+    const [saved, setSaved] = useState([])
     const [isLoading, setIsLoading] = useState(true);
-   
-  
+
+
+    const getDataById = async (userId) => {
+        const userRef = doc(db, "users", userId);
+
+        try {
+            const docSnapshot = await getDoc(userRef);
+            if (docSnapshot.exists()) {
+                const data = docSnapshot.data();
+
+                setSaved(data.savedJobs)
+
+            } else {
+                console.log("Document does not exist");
+            }
+        }
+        catch (error) {
+            console.error("Error retrieving documents:", error);
+        }
+    };
+
+
     useEffect(() => {
+        getDataById(id)
+
         const fetchJobs = async () => {
             try {
-                const jobPromises = slugs.map(async (slug) => {
+                const jobPromises = saved.map(async (slug) => {
                     const url = `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/${slug}`;
                     const options = {
                         method: 'GET',
@@ -40,7 +66,9 @@ const Saved = () => {
             }
         };
 
+
         fetchJobs();
+
     }, []);
     if (isLoading) {
         return <Spinner className={styles.spinner} animation="border" variant="primary" />;
@@ -48,24 +76,28 @@ const Saved = () => {
     return (
         <div className={styles2.profile}>
             <br />
-      
-            <Wrap spacing='30px' justify="center">
-                {slugs.length ? 
-                <div className={styles.col}>
-                    <div className={styles.title}> {slugs.length} Saved Applications</div>
-                    <div className={styles.subTitle}>Apply below before they expire or get closed.</div>
-                </div> :
+
+            <Flex flexDir='column' spacing='30px' justify="center" alignItems='center'>
+                {saved.length ?
+                    <div className={styles.col}>
+                        <div className={styles.title}> {saved.length} Saved Applications</div>
+                        <div className={styles.subTitle}>Apply before they expire or get closed.</div>
+                    </div> :
                     <div className={styles.col}>
                         <div className={styles.title}> No Saved Applications</div>
                     </div>
                 }
                 <br />
-                {slugs.length!==0 && jobs.map((j) => (
-                    <WrapItem>
-                        <JobCard job={j} />
-                    </WrapItem>
+                <br />
+                {saved.length !== 0 && jobs.map((j) => (
+                    <div>
+                        <WrapItem>
+                            <JobCard job={j} />
+                        </WrapItem>
+                        <br />
+                    </div>
                 ))}
-            </Wrap>
+            </Flex>
 
         </div>
     );

@@ -1,36 +1,72 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
-import Badge from 'react-bootstrap/Badge';
-import { Flex, Spacer } from "@chakra-ui/react";
-import { MdDateRange } from 'react-icons/md'
+import { Flex } from "@chakra-ui/react";
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa'
 import { DarkModeContext } from "../../contexts/ThemeContext";
-import styles from './JobCard.module.css'
+import styles from './JobCard.module.scss'
+import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../../firebase";
+import { useAuth } from "../../contexts/AuthContext";
 
 const JobCard = (props) => {
     let { darkMode } = useContext(DarkModeContext)
     const [bookmarkClick, setBookmarkClick] = useState(false)
+    const [items, setItems] = useState([]);
+    const { id } = useParams()
+    const { user } = useAuth()
+    const [isJobSaved, setIsJobSaved] = useState(false);
+
     darkMode = false
+
+    const handleBookmark = async () => {
+        const userCollectionRef = collection(db, "users");
+        const userDocRef = doc(userCollectionRef, id);
+        const userDocSnapshot = await getDoc(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+
+            const userData = userDocSnapshot.data();
+            const savedJobs = userData.savedJobs || [];
+            const isJobSaved = savedJobs.includes(props.job.slug);
+            const updatedSavedJobs = isJobSaved
+                ? savedJobs.filter((savedJobId) => savedJobId !== props.job.slug) // Remove job from saved jobs
+                : [...savedJobs, props.job.slug];
+
+            await updateDoc(userDocRef, { savedJobs: updatedSavedJobs });
+        }
+        setIsJobSaved(!isJobSaved)
+    }
+
+
+    useEffect(() => {
+        const checkIfJobSaved = async () => {
+            const userCollectionRef = collection(db, "users");
+            const userDocRef = doc(userCollectionRef, id);
+            const userDocSnapshot = await getDoc(userDocRef);
+
+            if (userDocSnapshot.exists()) {
+                const userData = userDocSnapshot.data();
+                const savedJobs = userData.savedJobs || [];
+                setIsJobSaved(savedJobs.includes(props.job.slug));
+            }
+        };
+
+        user ? checkIfJobSaved() : console.log('no user')
+    }, [props.job.slug, id]);
+
+
     return (
         <>
 
             <Card className={darkMode ? styles.cardHoverDark : styles.cardHover} style={{ width: '55vw', height: "auto" }}>
-
-                {/*      <Card.Header className={darkMode ? styles.fontColorDark : styles.fontColor} style={{ textOverflow: "ellipsis", whiteSpace: "nowrap", overflow: "hidden" }}>
-                        <Flex flexDirection="row" align="center">
-                            <img className={styles.image} src="/building.png" width={20} />&nbsp;{props.job.company}
-                        </Flex>
-    </Card.Header>*/}
 
                 <Card.Body className={darkMode ? styles.fontColorDark : styles.fontColor} style={{ padding: "20px 30px", display: "flex", flexDirection: "column" }}>
                     <div className={styles.bookmarkPosition}>
                         <Link to={`/job/${props.job.slug}`}>
                             <Card.Title className={styles.cardTitle}>{props.job.title}</Card.Title>
                         </Link >
-                        <button onClick={() => setBookmarkClick(!bookmarkClick)}>
-                            {bookmarkClick ? <FaBookmark className={styles.bookmarkSelected} /> : <FaRegBookmark className={styles.bookmark} />}</button>
+                        {user && isJobSaved ? (<FaBookmark onClick={handleBookmark} className={styles.bookmarkSelected} />) : user && !isJobSaved ? <FaRegBookmark onClick={handleBookmark} className={styles.bookmarkSelected} /> : ''}
                     </div>
                     <Card.Text style={{ textOverflow: "ellipsis", whiteSpace: "nowrap", overflow: "hidden" }} >
                         <Flex className={styles.cardSubTitle} color="#001E4C" flexDirection="row" align="center">

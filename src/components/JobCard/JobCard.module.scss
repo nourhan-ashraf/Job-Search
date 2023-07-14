@@ -33,11 +33,21 @@ body {
 .bookmarkSelected {
     font-size: 25px;
     color: #0055D9;
+
+    &:hover {
+        color: #3585fe;
+        cursor: pointer;
+    }
 }
 
 .bookmark {
     font-size: 25px;
     color: #4D6182;
+
+    &:hover {
+        color: #768fb7;
+        cursor: pointer;
+    }
 }
 
 .cardHoverDark {

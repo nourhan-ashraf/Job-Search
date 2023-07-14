@@ -9,28 +9,31 @@ import './App.css'
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import PrivateRoute from './PrivateRoute';
+import PrivateRouteSign from './PrivateRouteSign';
 import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 import SavedJobs from './pages/SavedJobs';
+import { useAuth } from './contexts/AuthContext';
 
 function App() {
   const { darkMode } = useContext(DarkModeContext)
-
+  const { user } = useAuth()
   return (
     <div className={darkMode ? "bgLight" : "bgLight"}>
       <Routes>
         <Route exact path="/" element={<MainPage />} />
-        <Route exact path="/signup" element={<SignUp />} />
-        <Route exact path="/signin" element={<SignIn />} />
+        {<Route exact path="/signup" element={<PrivateRoute><SignUp /></PrivateRoute>} />}
+        {<Route exact path="/signin" element={<PrivateRouteSign><SignIn /></PrivateRouteSign>} />}
         <Route exact path="/home" element={<SearchPage />} />
-        <Route exact path="/profile" element={<Profile />} />
-        {<Route exact path="/edit" element={<EditProfile />}/>}
-        <Route exact path="/saved" element={<SavedJobs />} />
+        <Route exact path="/home/:id" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
 
-        {/*            <Route exact path="/home" element={<PrivateRoute><JobPage /></PrivateRoute>} />
-*/}
+
+        <Route exact path="/profile/:id" element={<Profile />} />
+        {<Route exact path="/edit/:id" element={<PrivateRoute><EditProfile /></PrivateRoute>} />}
+        <Route exact path="/saved/:id" element={<SavedJobs />} />
+
         <Route exact path="/job/:id" element={<EachJob />} />
         <Route exact={true} path="/*" element={<Error />} />
       </Routes>
