@@ -1,5 +1,7 @@
 # Job listing and search website using an API
 
+## Unfortunately, the API is currently not working due to a version update made by the developer. I have contacted the developer to address and resolve the issue. In the meantime, please enjoy watching the demo of the website.
+
 ### Contents:
 [Description](#description) &nbsp; | &nbsp; [Features](#features) &nbsp; | &nbsp; [Technologies Used](#technologies-used) &nbsp; | &nbsp; [Demo](#demo) &nbsp; |  &nbsp;[Deployment](#deployment) &nbsp; | &nbsp; [API](#api) &nbsp; | &nbsp; [Future Work](#future-work) &nbsp; | &nbsp; [LICENSE](#license)
 
@@ -68,7 +70,6 @@ The project is deployed using Vercel. Feel free to try out the website yourself 
 ## API
 API Link: https://rapidapi.com/avaneesab5/api/jobsearch4
 
-The provided API link is experiencing issues, which are affecting the pagination functionality causing minor bugs. I have reached out to the developer to address these issues, and once they are resolved, I will update the project accordingly and fix any bugs that may occur.
 
  <br/> 
 
