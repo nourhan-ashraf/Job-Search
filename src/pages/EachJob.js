@@ -8,7 +8,7 @@ const EachJob = () => {
     const [job, setJob] = useState();
     const { id } = useParams()
 
-    const url = `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/${id}`;
+    const url = `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/${id}`;
     const options = {
         method: 'GET',
         headers: {

@@ -39,7 +39,7 @@ const Saved = () => {
     const fetchJobs = async () => {
         try {
             const jobPromises = saved.map(async (slug) => {
-                const url = `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/${slug}`;
+                const url = `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/${slug}`;
                 const options = {
                     method: 'GET',
                     headers: {
