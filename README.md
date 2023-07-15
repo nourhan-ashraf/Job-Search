@@ -1,6 +1,5 @@
 # Job listing and search website using an API
 
-## Unfortunately, the API is currently not working due to a version update made by the developer. I have contacted the developer to address and resolve the issue. In the meantime, please enjoy watching the demo of the website.
 
 ### Contents:
 [Description](#description) &nbsp; | &nbsp; [Features](#features) &nbsp; | &nbsp; [Technologies Used](#technologies-used) &nbsp; | &nbsp; [Demo](#demo) &nbsp; |  &nbsp;[Deployment](#deployment) &nbsp; | &nbsp; [API](#api) &nbsp; | &nbsp; [Future Work](#future-work) &nbsp; | &nbsp; [LICENSE](#license)
