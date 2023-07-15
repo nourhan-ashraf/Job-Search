@@ -23,7 +23,7 @@ body {
 .logoB {
     font-weight: bold;
     font-size: 30px;
-    color: #282538;
+    color: #0055D9;
     margin-bottom: 30px;
 
 }
@@ -39,7 +39,7 @@ body {
 .logoL {
     font-weight: lighter;
     font-size: 30px;
-    color: #282538;
+    color: #0055D9;
     margin-bottom: 30px;
 
 }
@@ -65,7 +65,7 @@ body {
 
 .applyText {
     max-width: 20vw;
-    color: #334680;
+    color: #0055D9;
     font-size: 16px;
     text-overflow: initial;
     overflow: hidden;
@@ -85,7 +85,7 @@ body {
 }
 
 .decriptionTitle {
-    color: #334680;
+    color: #0055D9;
     font-size: 24px;
     font-weight: 700;
 
@@ -98,7 +98,7 @@ body {
 }
 
 .company {
-    color: #334680;
+    color: #0055D9;
     font-size: 18px;
     font-weight: 700;
 }
@@ -212,3 +212,9 @@ body {
     }
 }
 
+@media screen and (max-width:650px) {
+        
+    .pagePadding {
+        padding: 40px 40px;
+    }
+}

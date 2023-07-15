@@ -8,6 +8,23 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import styles from './Nav.module.scss';
 import { doc, getDoc } from "firebase/firestore";
 
+const useScreenWidth = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+  
+    useEffect(() => {
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+  
+    return windowWidth;
+  };
 const Nav = () => {
     const navigate = useNavigate();
     const { signout, user } = useAuth()
@@ -43,7 +60,10 @@ const Nav = () => {
           console.error("Error retrieving documents:", error);
         }
       };
+      const windowWidth = useScreenWidth();
 
+     
+      
     useEffect(()=>{
         if(user)
             getDataById(id)
@@ -76,7 +96,7 @@ const Nav = () => {
             </div> :
 
                 <Center>
-            {photoURL ? <img className={styles.avatar} src={photoURL} /> : <img className={styles.avatar} src="/user.png" />}
+            {windowWidth<550 ? "" : photoURL ? <img className={styles.avatar} src={photoURL} /> : <img className={styles.avatar} src="/user.png" />}
                     <Menu>
                         <MenuButton
                             border={"none"}
@@ -89,6 +109,9 @@ const Nav = () => {
                             <Link to={`/profile/${id}`}><MenuItem>
                                 Profile
                             </MenuItem></Link>
+                            {windowWidth<550 ? <Link to={`/saved/${id}`}><MenuItem>
+                                Saved Jobs
+                            </MenuItem></Link> : ""}
                             <MenuItem onClick={handleLogout}>
                                 Log out
                             </MenuItem>

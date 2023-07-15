@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner';
 import { Pagination } from "react-bootstrap";
-import { Center, Flex, Wrap, WrapItem } from '@chakra-ui/react'
-import Alert from 'react-bootstrap/Alert';
+import { Flex, Wrap, WrapItem } from '@chakra-ui/react'
 
 import { DarkModeContext } from "../../contexts/ThemeContext";
 import styles from './jobs.module.scss'
@@ -19,7 +18,7 @@ const Jobs = () => {
     const [loading, setLoading] = useState(false);
     darkMode = false
     console.log(query)
-    let url = query ? `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/Search?SearchQuery=${query}&PageSize=10&PageNumber=${page}` : `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/Search?SearchQuery=w&PageSize=10&PageNumber=${page}`;
+    let url = query ? `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/Search?SearchQuery=${query}&PageSize=10&PageNumber=${page}` : `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/Latest?PageSize=10&PageNumber=${page}`;
     const options = {
         method: 'GET',
         headers: {
@@ -136,11 +135,7 @@ const Jobs = () => {
             <br />
             <br />
             <br />
-            <Center>
-            <Alert style={{textAlign:"justify"}} key={'primary'} variant={'primary'}>
-Unfortunately, the API is currently not working due to a version update made by the developer. I have contacted the developer to address and resolve the issue. <br />In the meantime, please enjoy watching the <Link style={{textDecoration:"underline", fontWeight:"bold"}} to='https://drive.google.com/uc?id=1mdi7OcXjw8F2BV882FCxPpAtmDt-dMlR' target="blank">demo</Link> of the website.
 
-        </Alert></Center>
             <Wrap className={styles.cardsMargin} spacing='70px' justify="center">
                 {
 
