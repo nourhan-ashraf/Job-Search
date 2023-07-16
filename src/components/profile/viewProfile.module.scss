@@ -252,6 +252,8 @@
 @media screen and (max-width:900px) {
     .image {
         width: 120px;
+        height: 120px;
+
     }
 
     .name {
@@ -265,7 +267,9 @@
     .icons {
         font-size: 17px;
     }
-   
+    .cardNoBg{
+        margin: 40px 50px;
+    }
 
 }
 
@@ -274,6 +278,7 @@
         padding: 40px 50px;
 
     }
+   
     .spaceevenly{
         grid-template-columns: 1fr 2fr;
     }
@@ -288,6 +293,8 @@
 @media screen and (max-width:555px) {
     .image {
         width: 90px;
+        height: 90px;
+
     }
     .card {
         padding: 30px 20px;
@@ -309,6 +316,11 @@
     }
  
   
+   
+    
+}
+
+@media screen and (max-width:1111px) {
     .userInfoEdit {
         display: flex;
         flex-direction: column;
@@ -316,6 +328,4 @@
         align-items: center;
         gap: 30px;
     }
-    
 }
-

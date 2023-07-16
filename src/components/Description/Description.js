@@ -9,7 +9,7 @@ import { DarkModeContext } from "../../contexts/ThemeContext";
 import styles from './Description.module.scss';
 
 const Description = (props) => {
-    const { darkMode } = useContext(DarkModeContext)
+    const darkMode = false
     console.log(props.job)
     return (
         <div className={styles.pagePadding} >
