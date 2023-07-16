@@ -13,7 +13,7 @@ const Edit = () => {
   const id = localStorage.getItem('uid')
   const { user, upload } = useAuth()
   const [summary, setSummary] = useState()
-  const [image, setImage] = useState()
+  const [image, setImage] = useState(null)
   const [username, setUsername] = useState()
   const [job, setJob] = useState()
   const [country, setCountry] = useState()
@@ -29,7 +29,7 @@ const Edit = () => {
   const [photoURL, setPhotoURL] = useState('https://imgtr.ee/image/UWQIm')
   const [err, setErr] = useState('loading')
   const fileInputRef = useRef(null);
-
+  const [imageURL, setImageURL] = useState()
 
 
   const showPhoto = async (uid) => {
@@ -45,24 +45,35 @@ const Edit = () => {
       console.error("Error retrieving download URL:", error);
     }
   };
-  const handleButtonClick = async () => {
-    if (image && id) {
-      setImageStatus('loading')
-      await upload(id, image);
-      await showPhoto(id);
-    }
-    setImageStatus('nothing')
+  useEffect(() => {
+    const handleButtonClick = async () => {
+      if (image && id) {
+        setImageStatus('loading')
+        await upload(id, image);
+        await showPhoto(id);
+        setImageStatus('nothing')
+      }
+  
+    };
+    handleButtonClick();
+  }, [image]);
 
-  };
+ 
 
   const handlePhotoUpload = (event) => {
     if (event.target.files[0]) {
-      setImage(event.target.files[0]);
-      console.log(image)
+      const selectedImage = event.target.files[0];
+      setImage(selectedImage);
+
+      // Create a local URL for displaying the image
+      const imageURL = URL.createObjectURL(selectedImage);
+      setImageURL(imageURL);
     }
 
   };
-
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+};
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -140,18 +151,21 @@ const Edit = () => {
       <div className={styles.cardNoBg}>
         <div className={styles.space}>
           <div className={styles.userInfoEdit}>
-          {photoURL ? <img className={styles.image} src={photoURL} /> : <img className={styles.image} src="https://imgtr.ee/image/UWQIm" />}
+          {imageURL ? <img className={styles.image} src={imageURL} /> : <img className={styles.image} src={photoURL} />}
             <div className={styles.col}>
               <div className={styles.title}>Profile Photo</div>
               <div className={styles.location}>Upload your photo for others to get to know you better.</div>
               
               <input
                 type="file"
+                ref={fileInputRef}
                 onChange={(e) => handlePhotoUpload(e)}
                 accept="image/*"
+                style={{ display: 'none' }}
               />
+            <Button className={styles.saveBtn} onClick={handleButtonClick}>Upload Your Photo</Button>
+
               {console.log(imageStatus)}
-              {imageStatus === 'nothing' ? <Button className={styles.saveBtn} onClick={handleButtonClick}>Upload Your Photo</Button> : imageStatus === 'loading' ? <Button disabled={true} className={styles.saveBtn} onClick={handleButtonClick}>Loading</Button> : <Button className={styles.saveBtn} onClick={handleButtonClick}>Upload Your Photo</Button> }
             </div>
           </div>
         </div>
