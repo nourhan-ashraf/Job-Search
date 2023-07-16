@@ -9,7 +9,7 @@ min-height: 721px;
   background: #1C1A27;
 }
 .bgLight {
-  height: 100vh;
+  min-height: 100vh;
   background: #F6F7FB;
 }
 
