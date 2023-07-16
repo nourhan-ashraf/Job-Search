@@ -23,8 +23,9 @@ I improved the user interface in the most recent update to resemble the Wuzzuf i
 - View detailed information about relevant job listings.
 - Access job descriptions and application details.
 - Explore jobs without signing in.
-- Save jobs to revisit them later.
+- Save jobs to access them later or remove them from saved.
 - User-friendly interface for seamless navigation.
+- Responsive view, ensuring optimal display and functionality across various devices and screen sizes.
 
  <br/> 
 
@@ -51,7 +52,8 @@ For authentication, Firebase is utilized, serving as a serverless database and s
 ## Demo
 Version 2.0.0 (The Latest) Demo
 
-https://github.com/nourhan-ashraf/Job-Search/assets/66208099/770e307f-8967-4a3c-8c06-5cf6585e3d9f
+https://github.com/nourhan-ashraf/Job-Search/assets/66208099/19ef7f0a-174f-49ed-9855-115be7b2f819
+
 
 <br />
 
