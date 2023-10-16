@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Badge, Button } from "react-bootstrap";
 import { Flex } from "@chakra-ui/react";
 import { ImLocation } from 'react-icons/im';
 import { MdDateRange } from "react-icons/md";
 
-import { DarkModeContext } from "../../contexts/ThemeContext";
 import styles from './Description.module.scss';
 
 const Description = (props) => {
@@ -13,40 +12,9 @@ const Description = (props) => {
     console.log(props.job)
     return (
         <div className={styles.pagePadding} >
-           {/* <div className={styles.siteName}>
-                <Link to="/home">
-                    <Flex flexDirection="row" marginBottom="15px">
-                        <h1 className={darkMode ? styles.logoBDark : styles.logoB}>Find&nbsp;</h1>
-                        <h1 className={darkMode ? styles.logoLLight : styles.logoL}>Jobs</h1>
-                    </Flex>
-                </Link>
-            </div>
-    <br />*/}
             <br />
             <br />
             <br />
-
-
-          {/*  <div className={styles.flexGrid}>
-                <div >
-                    <Link to="/home" >
-                        <h1 className={styles.back}>
-                            <Flex className={styles.siteName} flexDirection="row" justify="start" align="center">
-                                <IoReturnUpBackOutline color="1E86FF" size={25} />&nbsp;Back to search
-                            </Flex>
-                        </h1>
-                    </Link>
-
-                    <div className={styles.hid}>
-                        <br />
-                        <br />
-
-                        <h1 className={styles.apply}>HOW TO APPLY</h1>
-                        <Link to={`${props.job && props.job.url}`}>
-                            <Button size="md" style={{ fontWeight: "bold" }}>Apply</Button>
-                        </Link>
-                    </div>
-</div>*/}
 
                 <div>
                     <h1 className={darkMode ? styles.decriptionTitleDark : styles.decriptionTitle}>{props.job && props.job.title}</h1>
@@ -81,7 +49,6 @@ const Description = (props) => {
                     <p className={darkMode ? styles.decriptionDark : styles.decription} dangerouslySetInnerHTML={{ __html: props.job && props.job.originalPosting }}></p>
                     <br />
                     <div>
-                        {/*<h1 className={styles.apply}>HOW TO APPLY</h1>*/}
                         <Link to={`${props.job && props.job.url}`}>
                             <Button size="md" className={styles.applyBtn}>Apply</Button>
                         </Link>

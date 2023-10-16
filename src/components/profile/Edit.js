@@ -4,13 +4,15 @@ import { Button } from "react-bootstrap";
 import { IoCloseSharp } from 'react-icons/io5'
 import { db, storage } from "../../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, ref } from "firebase/storage";
+import Spinner from 'react-bootstrap/Spinner';
 
 const Edit = () => {
   const navigate = useNavigate()
   const id = localStorage.getItem('uid')
+  const [loading, setLoading] = useState(false)
   const { user, upload } = useAuth()
   const [summary, setSummary] = useState()
   const [image, setImage] = useState(null)
@@ -31,18 +33,15 @@ const Edit = () => {
   const fileInputRef = useRef(null);
   const [imageURL, setImageURL] = useState()
 
-
   const showPhoto = async (uid) => {
     const storageRef = ref(storage, `${uid}.png`);
 
     try {
       const downloadURL = await getDownloadURL(storageRef);
-      console.log("Download URL:", downloadURL);
       setPhotoURL(downloadURL)
-      console.log(photoURL)
 
     } catch (error) {
-      console.error("Error retrieving download URL:", error);
+      setErr("Error retrieving download URL:", error);
     }
   };
   useEffect(() => {
@@ -53,12 +52,12 @@ const Edit = () => {
         await showPhoto(id);
         setImageStatus('nothing')
       }
-  
+
     };
     handleButtonClick();
   }, [image]);
 
- 
+
 
   const handlePhotoUpload = (event) => {
     if (event.target.files[0]) {
@@ -73,7 +72,7 @@ const Edit = () => {
   };
   const handleButtonClick = () => {
     fileInputRef.current.click();
-};
+  };
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -120,24 +119,30 @@ const Edit = () => {
 
 
       } else {
-        console.log("Document does not exist");
+        setErr("Document does not exist");
       }
     }
     catch (error) {
-      console.error("Error retrieving documents:", error);
+      setErr("Error retrieving documents:", error);
     }
   };
 
   const updateDataById = async (userId, updatedData) => {
+
+    setLoading(true)
     const userRef = doc(db, "users", userId);
 
     try {
+
       await updateDoc(userRef, updatedData);
-      console.log("Document updated successfully!");
       setErr('success')
+      setLoading(false)
+
     } catch (error) {
-      console.error("Error updating document:", error);
+
       setErr('error')
+      setLoading(false)
+      
     }
   };
 
@@ -151,11 +156,11 @@ const Edit = () => {
       <div className={styles.cardNoBg}>
         <div className={styles.space}>
           <div className={styles.userInfoEdit}>
-          {imageURL ? <img className={styles.image} src={imageURL} /> : <img className={styles.image} src={photoURL} />}
+            {imageURL ? <img className={styles.image} src={imageURL} /> : <img className={styles.image} src={photoURL} />}
             <div className={styles.col}>
               <div className={styles.title}>Profile Photo</div>
               <div className={styles.location}>Upload your photo for others to get to know you better.</div>
-              
+
               <input
                 type="file"
                 ref={fileInputRef}
@@ -163,7 +168,7 @@ const Edit = () => {
                 accept="image/*"
                 style={{ display: 'none' }}
               />
-            <Button className={styles.saveBtn} onClick={handleButtonClick}>Upload Your Photo</Button>
+              <Button className={styles.saveBtn} onClick={handleButtonClick}>Upload Your Photo</Button>
 
               {console.log(imageStatus)}
             </div>
@@ -325,9 +330,11 @@ const Edit = () => {
       </div>
 
       <div className={styles.btn}>
-          <Button onClick={() => updateDataById(id, { displayName: username, summary: summary, linkedin: linked, skills: items, linkedin: linked, github: github, stackoverflow: stack, portfolio: portfolio, phone: phone, country: country, job: job, image: photoURL })} className={styles.saveBtn}>Save Changes</Button>
-         </div>
-         {err==='loading' ? "" : err==='success' ?  navigate(`/profile/${id}`) : "error"}
+        <Button onClick={() => updateDataById(id, { displayName: username, summary: summary, linkedin: linked, skills: items, linkedin: linked, github: github, stackoverflow: stack, portfolio: portfolio, phone: phone, country: country, job: job, image: photoURL })} className={styles.saveBtn}>
+          {loading ? <Spinner animation="border" variant="light" size="sm" /> : 'Save Changes'}
+        </Button>
+      </div>
+      {err === 'loading' ? "" : err === 'success' ? navigate(`/profile/${id}`) : "error"}
     </div>
   )
 }

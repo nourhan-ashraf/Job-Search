@@ -1,23 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import { Flex } from "@chakra-ui/react";
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa'
-import { DarkModeContext } from "../../contexts/ThemeContext";
 import styles from './JobCard.module.scss'
 import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useAuth } from "../../contexts/AuthContext";
 
 const JobCard = (props) => {
-    let { darkMode } = useContext(DarkModeContext)
-    const [bookmarkClick, setBookmarkClick] = useState(false)
-    const [items, setItems] = useState([]);
     const id = localStorage.getItem('uid')
     const { user } = useAuth()
     const [isJobSaved, setIsJobSaved] = useState(false);
 
-    darkMode = false
 
     const handleBookmark = async () => {
         const userCollectionRef = collection(db, "users");
@@ -59,9 +54,9 @@ const JobCard = (props) => {
     return (
         <>
 
-            <Card className={darkMode ? styles.cardHoverDark : styles.cardHover} style={{ width: '55vw', height: "auto" }}>
+            <Card className={styles.cardHover} style={{ width: '55vw', height: "auto" }}>
 
-                <Card.Body className={darkMode ? styles.fontColorDark : styles.fontColor} style={{ padding: "20px 30px", display: "flex", flexDirection: "column" }}>
+                <Card.Body className={styles.fontColor} style={{ padding: "20px 30px", display: "flex", flexDirection: "column" }}>
                     <div className={styles.bookmarkPosition}>
                         <Link to={`/job/${props.job.slug}`}>
                             <Card.Title className={styles.cardTitle}>{props.job.title}</Card.Title>

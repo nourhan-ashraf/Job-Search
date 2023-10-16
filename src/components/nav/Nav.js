@@ -30,34 +30,33 @@ const Nav = () => {
     const { signout, user } = useAuth()
     const [savedClick, setSavedClick] = useState()
     const [exploreClick, setExploreClick] = useState()
+    const [error, setError] = useState('')
     const id = localStorage.getItem('uid')
     const [photoURL, setPhotoURL] = useState('')
     const handleLogout = () => {
         signout(auth).then(() => {
             navigate("/");
-            console.log("Signed out successfully")
+            
         }).catch((error) => {
-            console.log(error)
+            setError(error)
         });
     }
     let pathname = window.location.pathname
 
     const getDataById = async (userId) => {
         const userRef = doc(db, "users", userId);
-        console.log(userRef)
     
         try {
           const docSnapshot = await getDoc(userRef);
-          console.log(docSnapshot)
           if (docSnapshot.exists()) {
             const data = docSnapshot.data();
             setPhotoURL(data.image)
           } else {
-            console.log("Document does not exist");
+            setError("Document does not exist");
           }
         }
         catch (error) {
-          console.error("Error retrieving documents:", error);
+            setError("Error retrieving documents:", error);
         }
       };
       const windowWidth = useScreenWidth();
@@ -79,17 +78,16 @@ const Nav = () => {
             setSavedClick(false)
         }
     }, [pathname])
-    console.log(pathname)
+
     return (
         <nav className={pathname === '/' || pathname === `/${id}`  ? styles.navbar : styles.secNavbar}>
             <div className={styles.navComponents}>
                 <Link to={user? `/${id}` : '/'}>
-                    {pathname === '/' ? <img className={styles.logoWhite} src='https://wuzzuf.net/images/HomepageImages/logo-white.png' /> : <img className={styles.logoBlue} src='https://www.efgev.com/wp-content/uploads/Wuzzuf-Logo-1.png' />}
+                    {pathname === '/' ? <img className={styles.logoWhite} src='/logo-white.png' /> : <img loading="eager" className={styles.logoBlue} src='/Wuzzuf-Logo-1.png' />}
                 </Link>
                 {(user === null || pathname === '/') ? <div></div> : <div>{user ? <Link className={exploreClick ? styles.homeClicked : styles.home} to={`/home/${id}`}>EXPLORE</Link> : <Link className={exploreClick ? styles.homeClicked : styles.home} to='/home'>EXPLORE</Link>} <Link className={savedClick ? styles.savedClicked : styles.saved} to={`/saved/${id}`}>SAVED</Link></div>}
 
             </div>
-            {console.log(user)}
             {user === null ? <div>
                 <Link to='/signin'>{pathname === '/' ? <button className={styles.secLoginBtn}>Login</button> : <button className={styles.loginBtn}>Login</button>}</Link>
                 <Link to='/signup'><button className={styles.signupBtn}>Join Now</button></Link>

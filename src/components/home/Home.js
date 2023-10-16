@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BsSearch } from 'react-icons/bs'
 
 import styles from './Home.module.scss'
 
-const placeholders = ["Search Jobs (e.g. Sales)", "Search Jobs (e.g. Remote Jobs)", "Search Jobs (e.g. Senior Java Developer)"]; // Array of placeholders
+const placeholders = ["Search Jobs (e.g. Sales)", "Search Jobs (e.g. Remote Jobs)", "Search Jobs (e.g. Senior Java Developer)"];
 
 const Home = () => {
     const [index, setIndex] = useState(0); 
@@ -32,7 +32,7 @@ const Home = () => {
         <>
             <div className={styles.container}>
 
-                <video className={styles.video} controls autoPlay loop>
+                <video loading="eager" className={styles.video} controls autoPlay loop>
                     <source src={'/video.mp4'} type="video/mp4" />
                 </video>
             </div>

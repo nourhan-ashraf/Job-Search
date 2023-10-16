@@ -6,9 +6,11 @@ import styles from './Sign.module.scss';
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Center } from "@chakra-ui/react";
+import Spinner from 'react-bootstrap/Spinner';
 
 
 const Sign = () => {
+    const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
@@ -29,12 +31,11 @@ const Sign = () => {
     const navigate = useNavigate()
 
 
-    const saveUserProfileToFirestore = async (userId, displayName, phone) => {
+    const saveUserProfileToFirestore = async (userId) => {
         const userRef = doc(db, "users", userId);
 
         try {
             await setDoc(userRef, {
-                displayName: username,
                 email: email,
                 summary: summary,
                 job: job,
@@ -48,29 +49,27 @@ const Sign = () => {
                 image: image,
                 savedJobs: savedJobs
             });
-            console.log("User profile saved to Firestore successfully!");
         } catch (error) {
             setErr('An error happened while creating the user, please try again')
-            console.error("Error saving user profile to Firestore:", error);
         }
     };
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
         if (pathname === '/signin') {
             await signin(email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
                     localStorage.setItem('uid', user.uid)
                     navigate(`/home/${localStorage.getItem('uid')}`)
-                    console.log(user);
+                    setLoading(false)
                 })
                 .catch((error) => {
-                    const errorCode = error.code;
                     const errorMessage = error.message;
                     setErr(errorMessage)
-                    console.log(errorCode, errorMessage)
+                    setLoading(false)
                 });
         }
         else if (pathname === '/signup') {
@@ -79,13 +78,12 @@ const Sign = () => {
                 saveUserProfileToFirestore(user.uid, username, email)
                 localStorage.setItem('uid', user.uid)
                 navigate(`/home/${localStorage.getItem('uid')}`)
-                console.log(user)
+                setLoading(true)
             })
                 .catch((error) => {
-                    const errorCode = error.code;
                     const errorMessage = error.message;
                     setErr(errorMessage)
-                    console.log(errorCode, errorMessage)
+                    setLoading(false)
                 })
         }
     }
@@ -94,7 +92,7 @@ const Sign = () => {
     return (
         <div>
             <div className={styles.container}>
-                <img className={styles.image} src="/bg4.jpg" />
+                <img className={styles.image} loading="eager" src="/bg4.jpg" />
             </div>
             <div className={`${styles.container} ${styles.paddingCard}`}>
                 <div className={styles.card}>
@@ -161,14 +159,14 @@ const Sign = () => {
                             onClick={(e) => handleSubmit(e)}
                             type="submit"
                         >
-                            {pathname === '/signin' ? "Sign in" : "Sign up"}
+                            {loading ? <Spinner animation="border" variant="light" size="sm" /> : pathname === '/signin' ? "Sign in" : "Sign up"}
                         </button>
                         <br />
                         <br />
 
-                        <Center style={{color:"red", fontWeight:"500"}}>
-{err==='no error' ? "": err.slice(10)}
-</Center>
+                        <Center style={{ color: "red", fontWeight: "500" }}>
+                            {err === 'no error' ? "" : err.slice(10)}
+                        </Center>
                     </form>
 
                     {pathname === '/signin' ?
